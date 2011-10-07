@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189701A4143DA3E100F3954D /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 189701A3143DA3E100F3954D /* SoundEffect.m */; };
+		189701A6143DA4DA00F3954D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189701A5143DA4DA00F3954D /* AudioToolbox.framework */; };
+		189701A9143DB0A500F3954D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 189701A7143DB0A500F3954D /* Icon.png */; };
+		189701AA143DB0A500F3954D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189701A8143DB0A500F3954D /* Icon@2x.png */; };
 		1B3C9A27139D4E0F0042676B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C9A26139D4E0F0042676B /* CoreVideo.framework */; };
 		1B3C9A2A139D4E150042676B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C9A29139D4E150042676B /* AVFoundation.framework */; };
 		1B3C9A2C139D4E1C0042676B /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C9A2B139D4E1C0042676B /* CoreImage.framework */; };
@@ -29,6 +33,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		189701A2143DA3E100F3954D /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundEffect.h; path = SquareCam/SoundEffect.h; sourceTree = "<group>"; };
+		189701A3143DA3E100F3954D /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoundEffect.m; path = SquareCam/SoundEffect.m; sourceTree = "<group>"; };
+		189701A5143DA4DA00F3954D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		189701A7143DB0A500F3954D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		189701A8143DB0A500F3954D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		1B3C9A26139D4E0F0042676B /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		1B3C9A29139D4E150042676B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1B3C9A2B139D4E1C0042676B /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -58,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189701A6143DA4DA00F3954D /* AudioToolbox.framework in Frameworks */,
 				1B3C9A34139D4EAA0042676B /* ImageIO.framework in Frameworks */,
 				1B3C9A32139D4E740042676B /* QuartzCore.framework in Frameworks */,
 				1B3C9A30139D4E5F0042676B /* CoreMedia.framework in Frameworks */,
@@ -77,6 +87,11 @@
 		1B867FCD139D4AD300AD6B47 = {
 			isa = PBXGroup;
 			children = (
+				189701A7143DB0A500F3954D /* Icon.png */,
+				189701A8143DB0A500F3954D /* Icon@2x.png */,
+				189701A5143DA4DA00F3954D /* AudioToolbox.framework */,
+				189701A2143DA3E100F3954D /* SoundEffect.h */,
+				189701A3143DA3E100F3954D /* SoundEffect.m */,
 				2BA4851913F1EC39000BABB3 /* ReadMe.txt */,
 				1B867FE2139D4AD300AD6B47 /* SquareCam */,
 				1B867FDB139D4AD300AD6B47 /* Frameworks */,
@@ -191,6 +206,8 @@
 				2BA4851113F1E6CC000BABB3 /* MainStoryboard_iPhone.storyboard in Resources */,
 				2BA4851813F1E6DB000BABB3 /* squarePNG.png in Resources */,
 				2BA4851A13F1EC39000BABB3 /* ReadMe.txt in Resources */,
+				189701A9143DB0A500F3954D /* Icon.png in Resources */,
+				189701AA143DB0A500F3954D /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +221,7 @@
 				2BA4850713F1E6AA000BABB3 /* SquareCamAppDelegate.m in Sources */,
 				2BA4850813F1E6AA000BABB3 /* SqareCamViewController.m in Sources */,
 				2BA4851713F1E6DB000BABB3 /* main.m in Sources */,
+				189701A4143DA3E100F3954D /* SoundEffect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

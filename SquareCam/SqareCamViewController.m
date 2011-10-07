@@ -2,47 +2,7 @@
      File: SqareCamViewController.m
  Abstract: Dmonstrates iOS 5 features of the AVCaptureStillImageOutput class
   Version: 1.0
- 
- Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
- Inc. ("Apple") in consideration of your agreement to the following
- terms, and your use, installation, modification or redistribution of
- this Apple software constitutes acceptance of these terms.  If you do
- not agree with these terms, please do not use, install, modify or
- redistribute this Apple software.
- 
- In consideration of your agreement to abide by the following terms, and
- subject to these terms, Apple grants you a personal, non-exclusive
- license, under Apple's copyrights in this original Apple software (the
- "Apple Software"), to use, reproduce, modify and redistribute the Apple
- Software, with or without modifications, in source and/or binary forms;
- provided that if you redistribute the Apple Software in its entirety and
- without modifications, you must retain this notice and the following
- text and disclaimers in all such redistributions of the Apple Software.
- Neither the name, trademarks, service marks or logos of Apple Inc. may
- be used to endorse or promote products derived from the Apple Software
- without specific prior written permission from Apple.  Except as
- expressly stated in this notice, no other rights or licenses, express or
- implied, are granted by Apple herein, including but not limited to any
- patent rights that may be infringed by your derivative works or by other
- works in which the Apple Software may be incorporated.
- 
- The Apple Software is provided by Apple on an "AS IS" basis.  APPLE
- MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
- THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS
- FOR A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND
- OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
- 
- IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL
- OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION,
- MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED
- AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
- STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
- POSSIBILITY OF SUCH DAMAGE.
- 
- Copyright (C) 2011 Apple Inc. All Rights Reserved.
- 
+
  */
 
 #import "SquareCamViewController.h"
@@ -216,6 +176,7 @@ static CGContextRef CreateCGBitmapContextForSize(CGSize size)
 									   [NSNumber numberWithInt:kCMPixelFormat_32BGRA] forKey:(id)kCVPixelBufferPixelFormatTypeKey];
 	[videoDataOutput setVideoSettings:rgbOutputSettings];
 	[videoDataOutput setAlwaysDiscardsLateVideoFrames:YES]; // discard if the data output queue is blocked (as we process the still image)
+
     
     // create a serial dispatch queue used for the sample buffer delegate as well as when a still image is captured
     // a serial dispatch queue must be used to guarantee that video frames will be delivered in order
@@ -231,6 +192,7 @@ static CGContextRef CreateCGBitmapContextForSize(CGSize size)
 	previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
 	[previewLayer setBackgroundColor:[[UIColor blackColor] CGColor]];
 	[previewLayer setVideoGravity:AVLayerVideoGravityResizeAspect];
+   
 	CALayer *rootLayer = [previewView layer];
 	[rootLayer setMasksToBounds:YES];
 	[previewLayer setFrame:[rootLayer bounds]];
@@ -269,6 +231,10 @@ bail:
 	if ( context == AVCaptureStillImageIsCapturingStillImageContext ) {
 		BOOL isCapturingStillImage = [[change objectForKey:NSKeyValueChangeNewKey] boolValue];
 		
+        //TODO
+        //Setting --> Light ON/OFF
+        //Setting --> Voice ON?
+        
 		if ( isCapturingStillImage ) {
 			// do flash bulb like animation
 			flashView = [[UIView alloc] initWithFrame:[previewView frame]];
@@ -428,7 +394,8 @@ bail:
 	[stillImageConnection setVideoOrientation:avcaptureOrientation];
 	[stillImageConnection setVideoScaleAndCropFactor:effectiveScale];
 	
-    BOOL doingFaceDetection = detectFaces && (effectiveScale == 1.0);
+    //Do not draw RED Squares here
+    BOOL doingFaceDetection = NO;  // detectFaces && (effectiveScale == 1.0);
 	
     // set the appropriate pixel format / image type output setting depending on if we'll need an uncompressed image for
     // the possiblity of drawing the red square over top or if we're just writing a jpeg to the camera roll which is the trival case
@@ -708,7 +675,7 @@ bail:
 		case UIDeviceOrientationLandscapeLeft:       // Device oriented horizontally, home button on the right
 			if (isUsingFrontFacingCamera)
 				exifOrientation = PHOTOS_EXIF_0ROW_BOTTOM_0COL_RIGHT;
-			else
+
 				exifOrientation = PHOTOS_EXIF_0ROW_TOP_0COL_LEFT;
 			break;
 		case UIDeviceOrientationLandscapeRight:      // Device oriented horizontally, home button on the left
@@ -727,15 +694,23 @@ bail:
 	NSArray *features = [faceDetector featuresInImage:ciImage options:imageOptions];
 	[ciImage release];
 	
+    
+    int faceCount = [features count];
+    if (faceCount >= 1  ) {
+        //Captured two faces 
+        NSLog(@"Captured face count %d", faceCount);
+        [self takePicture:nil];
+    }
+    
     // get the clean aperture
     // the clean aperture is a rectangle that defines the portion of the encoded pixel dimensions
     // that represents image data valid for display.
-	CMFormatDescriptionRef fdesc = CMSampleBufferGetFormatDescription(sampleBuffer);
-	CGRect clap = CMVideoFormatDescriptionGetCleanAperture(fdesc, false /*originIsTopLeft == false*/);
-	
-	dispatch_async(dispatch_get_main_queue(), ^(void) {
-		[self drawFaceBoxesForFeatures:features forVideoBox:clap orientation:curDeviceOrientation];
-	});
+//	CMFormatDescriptionRef fdesc = CMSampleBufferGetFormatDescription(sampleBuffer);
+//	CGRect clap = CMVideoFormatDescriptionGetCleanAperture(fdesc, false /*originIsTopLeft == false*/);
+//	
+//	dispatch_async(dispatch_get_main_queue(), ^(void) {
+//		[self drawFaceBoxesForFeatures:features forVideoBox:clap orientation:curDeviceOrientation];
+//	});
 }
 
 - (void)dealloc

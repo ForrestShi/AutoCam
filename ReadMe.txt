@@ -1,5 +1,18 @@
 ### SquareCam ###
 
+### AutoCam for Friends ###
+
+===========================================================================
+PRODUCT IDEA:
+
+Capture the moment with two faces as a (filterd) photo.
+
+===========================================================================
+TODO:
+
+1. Save a static image when capture two faces. 
+
+
 ===========================================================================
 DESCRIPTION:
 
