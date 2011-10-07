@@ -14,9 +14,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1B867FD7139D4AD300AD6B47"
-               BuildableName = "SquareCam.app"
-               BlueprintName = "SquareCam"
-               ReferencedContainer = "container:SquareCam .xcodeproj">
+               BuildableName = "AutoCam Lite.app"
+               BlueprintName = "AutoCamLite"
+               ReferencedContainer = "container:AutoCam.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,20 +28,31 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1B867FD7139D4AD300AD6B47"
+            BuildableName = "AutoCam Lite.app"
+            BlueprintName = "AutoCamLite"
+            ReferencedContainer = "container:AutoCam.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug">
+      buildConfiguration = "Debug"
+      debugDocumentVersioning = "YES"
+      allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1B867FD7139D4AD300AD6B47"
-            BuildableName = "SquareCam.app"
-            BlueprintName = "SquareCam"
-            ReferencedContainer = "container:SquareCam .xcodeproj">
+            BuildableName = "AutoCam Lite.app"
+            BlueprintName = "AutoCamLite"
+            ReferencedContainer = "container:AutoCam.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -51,14 +62,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release">
+      buildConfiguration = "Release"
+      debugDocumentVersioning = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1B867FD7139D4AD300AD6B47"
-            BuildableName = "SquareCam.app"
-            BlueprintName = "SquareCam"
-            ReferencedContainer = "container:SquareCam .xcodeproj">
+            BuildableName = "AutoCam Lite.app"
+            BlueprintName = "AutoCamLite"
+            ReferencedContainer = "container:AutoCam.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

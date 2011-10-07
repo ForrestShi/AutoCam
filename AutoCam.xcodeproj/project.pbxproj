@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		189701A4143DA3E100F3954D /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 189701A3143DA3E100F3954D /* SoundEffect.m */; };
 		189701A6143DA4DA00F3954D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189701A5143DA4DA00F3954D /* AudioToolbox.framework */; };
-		189701A9143DB0A500F3954D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 189701A7143DB0A500F3954D /* Icon.png */; };
-		189701AA143DB0A500F3954D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189701A8143DB0A500F3954D /* Icon@2x.png */; };
 		189A107E143ECD0E0076115C /* DDExpandableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A107D143ECD0E0076115C /* DDExpandableButton.m */; };
 		189A1081143ECD250076115C /* Flash.png in Resources */ = {isa = PBXBuildFile; fileRef = 189A107F143ECD250076115C /* Flash.png */; };
 		189A1082143ECD250076115C /* Flash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189A1080143ECD250076115C /* Flash@2x.png */; };
@@ -28,6 +26,8 @@
 		189A10CC143EF6C20076115C /* Photos.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A10C7143EF6C20076115C /* Photos.m */; };
 		189A10CD143EF6C20076115C /* UIImage+KTCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A10C9143EF6C20076115C /* UIImage+KTCategory.m */; };
 		189A10D0143EF74C0076115C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189A10CF143EF74C0076115C /* MessageUI.framework */; };
+		189A10DA143F04D10076115C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 189A10D8143F04D10076115C /* Icon.png */; };
+		189A10DB143F04D10076115C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189A10D9143F04D10076115C /* Icon@2x.png */; };
 		1B3C9A27139D4E0F0042676B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C9A26139D4E0F0042676B /* CoreVideo.framework */; };
 		1B3C9A2A139D4E150042676B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C9A29139D4E150042676B /* AVFoundation.framework */; };
 		1B3C9A2C139D4E1C0042676B /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C9A2B139D4E1C0042676B /* CoreImage.framework */; };
@@ -53,8 +53,6 @@
 		189701A2143DA3E100F3954D /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundEffect.h; path = SquareCam/SoundEffect.h; sourceTree = "<group>"; };
 		189701A3143DA3E100F3954D /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoundEffect.m; path = SquareCam/SoundEffect.m; sourceTree = "<group>"; };
 		189701A5143DA4DA00F3954D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		189701A7143DB0A500F3954D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		189701A8143DB0A500F3954D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		189A107C143ECD0E0076115C /* DDExpandableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDExpandableButton.h; sourceTree = "<group>"; };
 		189A107D143ECD0E0076115C /* DDExpandableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDExpandableButton.m; sourceTree = "<group>"; };
 		189A107F143ECD250076115C /* Flash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flash.png; sourceTree = SOURCE_ROOT; };
@@ -87,6 +85,8 @@
 		189A10C8143EF6C20076115C /* UIImage+KTCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KTCategory.h"; sourceTree = "<group>"; };
 		189A10C9143EF6C20076115C /* UIImage+KTCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KTCategory.m"; sourceTree = "<group>"; };
 		189A10CF143EF74C0076115C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		189A10D8143F04D10076115C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
+		189A10D9143F04D10076115C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		1B3C9A26139D4E0F0042676B /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		1B3C9A29139D4E150042676B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1B3C9A2B139D4E1C0042676B /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -94,7 +94,7 @@
 		1B3C9A2F139D4E5F0042676B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		1B3C9A31139D4E740042676B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1B3C9A33139D4EAA0042676B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		1B867FD8139D4AD300AD6B47 /* SquareCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SquareCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B867FD8139D4AD300AD6B47 /* AutoCam Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AutoCam Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B867FDC139D4AD300AD6B47 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1B867FDE139D4AD300AD6B47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1B867FE0139D4AD300AD6B47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -134,7 +134,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		189A10BC143EF17A0076115C /* New Group */ = {
+		189A10BC143EF17A0076115C /* KTPhoto */ = {
 			isa = PBXGroup;
 			children = (
 				189A10BD143EF1910076115C /* KTPhotoBrowser.bundle */,
@@ -152,10 +152,10 @@
 				189A10B4143EF1710076115C /* KTThumbView.h */,
 				189A10B5143EF1710076115C /* KTThumbView.m */,
 			);
-			name = "New Group";
+			name = KTPhoto;
 			sourceTree = "<group>";
 		};
-		189A10CE143EF6C80076115C /* New Group1 */ = {
+		189A10CE143EF6C80076115C /* LocalKTPhoto */ = {
 			isa = PBXGroup;
 			children = (
 				189A10C2143EF6C20076115C /* LocalImageRootViewController.h */,
@@ -167,29 +167,41 @@
 				189A10C8143EF6C20076115C /* UIImage+KTCategory.h */,
 				189A10C9143EF6C20076115C /* UIImage+KTCategory.m */,
 			);
-			name = "New Group1";
+			name = LocalKTPhoto;
+			sourceTree = "<group>";
+		};
+		189A10D6143F03750076115C /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				189A10BF143EF3290076115C /* ImageUtility.h */,
+				189A1086143ED9660076115C /* UIImage+RotationMethods.h */,
+				189A1087143ED9660076115C /* UIImage+RotationMethods.m */,
+				189A1083143ECF7B0076115C /* UIViewController+CameraSetup.h */,
+				189A1084143ECF7B0076115C /* UIViewController+CameraSetup.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		189A10D7143F03960076115C /* Utility Classes */ = {
+			isa = PBXGroup;
+			children = (
+				189A10D6143F03750076115C /* Category */,
+				189701A2143DA3E100F3954D /* SoundEffect.h */,
+				189701A3143DA3E100F3954D /* SoundEffect.m */,
+				189A107C143ECD0E0076115C /* DDExpandableButton.h */,
+				189A107D143ECD0E0076115C /* DDExpandableButton.m */,
+			);
+			name = "Utility Classes";
 			sourceTree = "<group>";
 		};
 		1B867FCD139D4AD300AD6B47 = {
 			isa = PBXGroup;
 			children = (
-				189A10CF143EF74C0076115C /* MessageUI.framework */,
-				189A10BF143EF3290076115C /* ImageUtility.h */,
-				189A10BC143EF17A0076115C /* New Group */,
-				189A1086143ED9660076115C /* UIImage+RotationMethods.h */,
-				189A1087143ED9660076115C /* UIImage+RotationMethods.m */,
-				189A1083143ECF7B0076115C /* UIViewController+CameraSetup.h */,
-				189A1084143ECF7B0076115C /* UIViewController+CameraSetup.m */,
-				189A10CE143EF6C80076115C /* New Group1 */,
-				189701A7143DB0A500F3954D /* Icon.png */,
-				189701A8143DB0A500F3954D /* Icon@2x.png */,
-				189701A5143DA4DA00F3954D /* AudioToolbox.framework */,
-				189701A2143DA3E100F3954D /* SoundEffect.h */,
-				189701A3143DA3E100F3954D /* SoundEffect.m */,
-				189A107C143ECD0E0076115C /* DDExpandableButton.h */,
-				189A107D143ECD0E0076115C /* DDExpandableButton.m */,
+				189A10D7143F03960076115C /* Utility Classes */,
+				189A10BC143EF17A0076115C /* KTPhoto */,
+				189A10CE143EF6C80076115C /* LocalKTPhoto */,
 				2BA4851913F1EC39000BABB3 /* ReadMe.txt */,
-				1B867FE2139D4AD300AD6B47 /* SquareCam */,
+				1B867FE2139D4AD300AD6B47 /* App */,
 				1B867FDB139D4AD300AD6B47 /* Frameworks */,
 				1B867FD9139D4AD300AD6B47 /* Products */,
 			);
@@ -198,7 +210,7 @@
 		1B867FD9139D4AD300AD6B47 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1B867FD8139D4AD300AD6B47 /* SquareCam.app */,
+				1B867FD8139D4AD300AD6B47 /* AutoCam Lite.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -206,6 +218,8 @@
 		1B867FDB139D4AD300AD6B47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				189A10CF143EF74C0076115C /* MessageUI.framework */,
+				189701A5143DA4DA00F3954D /* AudioToolbox.framework */,
 				1B3C9A33139D4EAA0042676B /* ImageIO.framework */,
 				1B3C9A31139D4E740042676B /* QuartzCore.framework */,
 				1B3C9A2F139D4E5F0042676B /* CoreMedia.framework */,
@@ -220,7 +234,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1B867FE2139D4AD300AD6B47 /* SquareCam */ = {
+		1B867FE2139D4AD300AD6B47 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				2BA4850313F1E6AA000BABB3 /* SquareCamAppDelegate.h */,
@@ -231,13 +245,15 @@
 				2BA4850E13F1E6CC000BABB3 /* MainStoryboard_iPhone.storyboard */,
 				1B867FE3139D4AD300AD6B47 /* Supporting Files */,
 			);
-			name = SquareCam;
+			name = App;
 			path = StacheCam;
 			sourceTree = "<group>";
 		};
 		1B867FE3139D4AD300AD6B47 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				189A10D8143F04D10076115C /* Icon.png */,
+				189A10D9143F04D10076115C /* Icon@2x.png */,
 				189A107F143ECD250076115C /* Flash.png */,
 				189A1080143ECD250076115C /* Flash@2x.png */,
 				2BA4851213F1E6DB000BABB3 /* Info.plist */,
@@ -251,9 +267,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1B867FD7139D4AD300AD6B47 /* SquareCam */ = {
+		1B867FD7139D4AD300AD6B47 /* AutoCamLite */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B867FFA139D4AD300AD6B47 /* Build configuration list for PBXNativeTarget "SquareCam" */;
+			buildConfigurationList = 1B867FFA139D4AD300AD6B47 /* Build configuration list for PBXNativeTarget "AutoCamLite" */;
 			buildPhases = (
 				1B867FD4139D4AD300AD6B47 /* Sources */,
 				1B867FD5139D4AD300AD6B47 /* Frameworks */,
@@ -263,9 +279,9 @@
 			);
 			dependencies = (
 			);
-			name = SquareCam;
+			name = AutoCamLite;
 			productName = StacheCam;
-			productReference = 1B867FD8139D4AD300AD6B47 /* SquareCam.app */;
+			productReference = 1B867FD8139D4AD300AD6B47 /* AutoCam Lite.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -276,7 +292,7 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = 1B867FD2139D4AD300AD6B47 /* Build configuration list for PBXProject "SquareCam " */;
+			buildConfigurationList = 1B867FD2139D4AD300AD6B47 /* Build configuration list for PBXProject "AutoCam" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -288,7 +304,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1B867FD7139D4AD300AD6B47 /* SquareCam */,
+				1B867FD7139D4AD300AD6B47 /* AutoCamLite */,
 			);
 		};
 /* End PBXProject section */
@@ -304,11 +320,11 @@
 				2BA4851113F1E6CC000BABB3 /* MainStoryboard_iPhone.storyboard in Resources */,
 				2BA4851813F1E6DB000BABB3 /* squarePNG.png in Resources */,
 				2BA4851A13F1EC39000BABB3 /* ReadMe.txt in Resources */,
-				189701A9143DB0A500F3954D /* Icon.png in Resources */,
-				189701AA143DB0A500F3954D /* Icon@2x.png in Resources */,
 				189A1081143ECD250076115C /* Flash.png in Resources */,
 				189A1082143ECD250076115C /* Flash@2x.png in Resources */,
 				189A10BE143EF1910076115C /* KTPhotoBrowser.bundle in Resources */,
+				189A10DA143F04D10076115C /* Icon.png in Resources */,
+				189A10DB143F04D10076115C /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +455,7 @@
 				GCC_PREFIX_HEADER = SquareCam/Prefix.pch;
 				INFOPLIST_FILE = SquareCam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = SquareCam;
+				PRODUCT_NAME = "AutoCam Lite";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -456,7 +472,7 @@
 				GCC_PREFIX_HEADER = SquareCam/Prefix.pch;
 				INFOPLIST_FILE = SquareCam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = SquareCam;
+				PRODUCT_NAME = "AutoCam Lite";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -467,7 +483,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1B867FD2139D4AD300AD6B47 /* Build configuration list for PBXProject "SquareCam " */ = {
+		1B867FD2139D4AD300AD6B47 /* Build configuration list for PBXProject "AutoCam" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B867FF8139D4AD300AD6B47 /* Debug */,
@@ -476,7 +492,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B867FFA139D4AD300AD6B47 /* Build configuration list for PBXNativeTarget "SquareCam" */ = {
+		1B867FFA139D4AD300AD6B47 /* Build configuration list for PBXNativeTarget "AutoCamLite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B867FFB139D4AD300AD6B47 /* Debug */,
