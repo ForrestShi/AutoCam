@@ -11,6 +11,10 @@
 #import <AssertMacros.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
+#import "DDExpandableButton.h"
+#import "UIViewController+CameraSetup.h"
+#import "UIImage+RotationMethods.h"
+
 #pragma mark-
 
 // used for KVO observation of the @"capturingStillImage" property to perform flash bulb animation
@@ -94,44 +98,6 @@ static CGContextRef CreateCGBitmapContextForSize(CGSize size)
     return context;
 }
 
-#pragma mark-
-
-@interface UIImage (RotationMethods)
-- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
-@end
-
-@implementation UIImage (RotationMethods)
-
-- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees 
-{   
-	// calculate the size of the rotated view's containing box for our drawing space
-	UIView *rotatedViewBox = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.size.width, self.size.height)];
-	CGAffineTransform t = CGAffineTransformMakeRotation(DegreesToRadians(degrees));
-	rotatedViewBox.transform = t;
-	CGSize rotatedSize = rotatedViewBox.frame.size;
-	[rotatedViewBox release];
-	
-	// Create the bitmap context
-	UIGraphicsBeginImageContext(rotatedSize);
-	CGContextRef bitmap = UIGraphicsGetCurrentContext();
-	
-	// Move the origin to the middle of the image so we will rotate and scale around the center.
-	CGContextTranslateCTM(bitmap, rotatedSize.width/2, rotatedSize.height/2);
-	
-	//   // Rotate the image context
-	CGContextRotateCTM(bitmap, DegreesToRadians(degrees));
-	
-	// Now, draw the rotated/scaled image into the context
-	CGContextScaleCTM(bitmap, 1.0, -1.0);
-	CGContextDrawImage(bitmap, CGRectMake(-self.size.width / 2, -self.size.height / 2, self.size.width, self.size.height), [self CGImage]);
-	
-	UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-	return newImage;
-	
-}
-
-@end
 
 #pragma mark-
 
@@ -142,6 +108,8 @@ static CGContextRef CreateCGBitmapContextForSize(CGSize size)
 @end
 
 @implementation SquareCamViewController
+
+
 
 - (void)setupAVCapture
 {
@@ -162,6 +130,13 @@ static CGContextRef CreateCGBitmapContextForSize(CGSize size)
 	if ( [session canAddInput:deviceInput] )
 		[session addInput:deviceInput];
 	
+    
+    // add Torch button
+    if ([device hasTorch]) {
+        DDExpandableButton *torchModeButton = [self torchModeButton]; 
+		[[self view] addSubview:torchModeButton];
+	}
+    
     // Make a still image output
 	stillImageOutput = [AVCaptureStillImageOutput new];
 	[stillImageOutput addObserver:self forKeyPath:@"capturingStillImage" options:NSKeyValueObservingOptionNew context:AVCaptureStillImageIsCapturingStillImageContext];
