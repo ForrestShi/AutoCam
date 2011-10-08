@@ -648,10 +648,13 @@ bail:
 }
 
 - (void) setupKKThumbView{
-    LocalImageRootViewController *ktThumbsVC = [[LocalImageRootViewController alloc] init];
-    ktThumbsVC.view.frame = CGRectMake(0, 400, 320, 60);
-    [self.view addSubview:ktThumbsVC.view];
+//    LocalImageRootViewController *ktThumbsVC = [[LocalImageRootViewController alloc] init];
+//    ktThumbsVC.view.frame = CGRectMake(0, 400, 320, 60);
+//    [self.view addSubview:ktThumbsVC.view];
     //[ktThumbsVC autorelease];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -671,7 +674,16 @@ bail:
 	NSDictionary *detectorOptions = [[NSDictionary alloc] initWithObjectsAndKeys:CIDetectorAccuracyLow, CIDetectorAccuracy, nil];
 	faceDetector = [[CIDetector detectorOfType:CIDetectorTypeFace context:nil options:detectorOptions] retain];
 	[detectorOptions release];
-    [self setupKKThumbView];
+    //[self setupKKThumbView];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"AddPhoto" object:nil queue:[NSOperationQueue currentQueue] usingBlock:^(NSNotification *note) {
+        //UIButton *thumbButton = (UIButton*)[self.view viewWithTag:1001];
+        NSLog(@"%s",__PRETTY_FUNCTION__);
+
+        NSData *jpegData = (NSData*)[[note userInfo] objectForKey:@"imageData"];
+        UIImage *image = [UIImage imageWithData:jpegData];
+        [resultThumb setImage:image forState:UIControlStateNormal];
+    }];
 }
 
 - (void)viewDidUnload

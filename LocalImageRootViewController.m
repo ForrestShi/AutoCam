@@ -50,8 +50,8 @@
         NSLog(@"%s",__PRETTY_FUNCTION__);
         
         NSData *jpegData = (NSData*)[[note userInfo] objectForKey:@"imageData"];
-        
         UIImage *image = [UIImage imageWithData:jpegData];
+        
         NSString * const key = @"nextNumber";
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSNumber *nextNumber = [defaults valueForKey:key];

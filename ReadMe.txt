@@ -10,7 +10,9 @@ Capture the moment with two faces as a (filterd) photo.
 ===========================================================================
 TODO:
 
-1. Save a static image when capture two faces. 
+1. Save a static image when capture two faces. [Done]
+2. Switch front/back camera with transition animation
+3. Design how to show the capture process and result for users , how to review the capture results, and how to share results  
 
 
 ===========================================================================
