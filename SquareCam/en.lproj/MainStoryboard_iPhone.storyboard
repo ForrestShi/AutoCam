@@ -22,8 +22,8 @@
                                     <outletCollection property="gestureRecognizers" destination="23" id="24"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yFH-k5-EnV">
-                                <rect key="frame" x="228" y="38" width="72" height="57"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yFH-k5-EnV">
+                                <rect key="frame" x="228" y="18" width="72" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="tog">
@@ -34,7 +34,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="switchCameras:" destination="4" eventType="touchUpInside" id="qu6-EO-bV9"/>
+                                    <action selector="switchCameras:" destination="4" eventType="touchUpInside" id="MWG-VJ-VJA"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="qLQ-Kk-fUa">
@@ -47,6 +47,7 @@
                     <connections>
                         <outlet property="previewView" destination="12" id="13"/>
                         <outlet property="resultThumb" destination="qLQ-Kk-fUa" id="USL-w3-Sso"/>
+                        <outlet property="switchCamButton" destination="yFH-k5-EnV" id="Tl8-Gi-QgL"/>
                     </connections>
                 </viewController>
                 <customObject id="vEm-Bm-BSF" customClass="LocalImageRootViewController"/>
@@ -74,6 +75,7 @@
                 <relationship kind="action" name="takePicture:"/>
                 <relationship kind="outlet" name="previewView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="resultThumb" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="switchCamButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>

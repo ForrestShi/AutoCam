@@ -12,6 +12,7 @@
 {
 	IBOutlet UIView *previewView;
     IBOutlet UIImageView *resultThumb;
+    IBOutlet UIButton *switchCamButton;
 	//IBOutlet UISegmentedControl *camerasControl;
 	AVCaptureVideoPreviewLayer *previewLayer;
 	AVCaptureVideoDataOutput *videoDataOutput;

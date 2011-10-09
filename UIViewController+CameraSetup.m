@@ -25,6 +25,18 @@
     return torchModeButton;
 }
 
+- (DDExpandableButton*) switchCamButton {
+    DDExpandableButton *toggleButton = [[[DDExpandableButton alloc] initWithPoint:CGPointMake(20.0f, 155.0f)
+																		leftTitle:[UIImage imageNamed:@"Flash.png"]
+																		  buttons:nil] autorelease];
+	[toggleButton addTarget:self action:@selector(toggleCam:) forControlEvents:UIControlEventValueChanged];
+	[toggleButton setToggleMode:YES];
+	[toggleButton setInnerBorderWidth:0];
+	[toggleButton setHorizontalPadding:6];
+	[toggleButton updateDisplay];
+    return toggleButton;
+}
+
 - (DDExpandableButton*) toggleButton{
     DDExpandableButton *toggleButton = [[[DDExpandableButton alloc] initWithPoint:CGPointMake(20.0f, 155.0f)
 																		leftTitle:nil
@@ -64,5 +76,12 @@
 			break;
 	}
 }
+
+- (void)toggleCam:(DDExpandableButton *)sender
+{
+ //TODO switch front/back cam   
+}
+
+
 
 @end

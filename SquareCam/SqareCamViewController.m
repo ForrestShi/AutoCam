@@ -26,6 +26,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 
 @interface SquareCamViewController (InternalMethods)
 - (void)setupAVCapture;
+- (BOOL) hasFrontCamera;
 - (void)teardownAVCapture;
 - (void)drawFaceBoxesForFeatures:(NSArray *)features forVideoBox:(CGRect)clap orientation:(UIDeviceOrientation)orientation;
 @end
@@ -59,6 +60,10 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
         DDExpandableButton *torchModeButton = [self torchModeButton]; 
 		[[self view] addSubview:torchModeButton];
 	}
+    // add switch button for Front/Back camera
+    if (![self hasFrontCamera ]) {
+        switchCamButton.alpha = 0;
+	}
     
     // Make a still image output
 	stillImageOutput = [AVCaptureStillImageOutput new];
@@ -90,7 +95,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 	previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
 	[previewLayer setBackgroundColor:[[UIColor blackColor] CGColor]];
 	[previewLayer setVideoGravity:AVLayerVideoGravityResizeAspect];
-   
+    
 	CALayer *rootLayer = [previewView layer];
 	[rootLayer setMasksToBounds:YES];
 	[previewLayer setFrame:[rootLayer bounds]];
@@ -644,6 +649,16 @@ static NSTimeInterval curDate = 0;
 	[super dealloc];
 }
 
+- (BOOL) hasFrontCamera{
+    NSArray *videoDevices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];    
+    for (AVCaptureDevice *device in videoDevices) {
+        if (device.position == AVCaptureDevicePositionFront) {
+            //FRONT-FACING CAMERA EXISTS
+            return YES;
+        }
+    }
+    return NO;
+}
 // use front/back camera
 - (IBAction)switchCameras:(id)sender
 {
