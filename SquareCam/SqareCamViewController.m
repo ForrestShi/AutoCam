@@ -370,9 +370,17 @@ bail:
 						if (error) {
 							[self displayErrorOnMainQueue:error withMessage:@"Save to camera roll failed"];
 						}
+                        
+                        //save successfully, then show the thumbnail 
+                        resultThumb.frame = CGRectMake(0, 0, 320, 480);
+                        resultThumb.image = [UIImage imageWithData:jpegData];
+                        [UIView animateWithDuration:.5 animations:^{
+                            resultThumb.frame = CGRectMake(0, 480 - 96 , 64, 96);
+                        }];
+                        
 					}];
 					
-                    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"AddPhoto" object:nil userInfo:[NSDictionary dictionaryWithObject:jpegData forKey:@"imageData"]] ];
+//                    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"AddPhoto" object:nil userInfo:[NSDictionary dictionaryWithObject:jpegData forKey:@"imageData"]] ];
 
 					if (attachments)
 						CFRelease(attachments);
@@ -539,6 +547,8 @@ bail:
 	[CATransaction commit];
 }
 
+static NSTimeInterval curDate = 0;
+
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 {	
 	// got an image
@@ -601,6 +611,16 @@ bail:
     if (faceCount >= 1  ) {
         //Captured two faces 
         NSLog(@"Captured face count %d", faceCount);
+        
+        if (curDate != 0) {
+           NSTimeInterval interval = [NSDate timeIntervalSinceReferenceDate] - curDate;
+           // NSLog(@"interval %f", interval);
+            if (interval < 1 ) {
+                return;
+            }
+        }
+        curDate = [NSDate timeIntervalSinceReferenceDate];
+        //NSLog(@"curDate is %f",curDate);
         [self takePicture:nil];
     }
     
@@ -614,6 +634,7 @@ bail:
 //		[self drawFaceBoxesForFeatures:features forVideoBox:clap orientation:curDeviceOrientation];
 //	});
 }
+
 
 - (void)dealloc
 {
@@ -676,13 +697,16 @@ bail:
 	[detectorOptions release];
     //[self setupKKThumbView];
     
+    resultThumb.alpha = 0.5;
+    
     [[NSNotificationCenter defaultCenter] addObserverForName:@"AddPhoto" object:nil queue:[NSOperationQueue currentQueue] usingBlock:^(NSNotification *note) {
         //UIButton *thumbButton = (UIButton*)[self.view viewWithTag:1001];
         NSLog(@"%s",__PRETTY_FUNCTION__);
 
         NSData *jpegData = (NSData*)[[note userInfo] objectForKey:@"imageData"];
         UIImage *image = [UIImage imageWithData:jpegData];
-        [resultThumb setImage:image forState:UIControlStateNormal];
+        
+        resultThumb.image = image;
     }];
 }
 
