@@ -10,6 +10,7 @@
 #import <ImageIO/ImageIO.h>
 #import <AssertMacros.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "QuartzCore/QuartzCore.h"
 
 #import "DDExpandableButton.h"
 #import "UIViewController+CameraSetup.h"
@@ -33,7 +34,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 
 @implementation SquareCamViewController
 
-
+@synthesize navController = navController_;
 
 - (void)setupAVCapture
 {
@@ -64,7 +65,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
     if (![self hasFrontCamera ]) {
         switchCamButton.alpha = 0;
 	}
-    
+        
     // Make a still image output
 	stillImageOutput = [AVCaptureStillImageOutput new];
 	[stillImageOutput addObserver:self forKeyPath:@"capturingStillImage" options:NSKeyValueObservingOptionNew context:AVCaptureStillImageIsCapturingStillImageContext];
@@ -94,7 +95,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 	effectiveScale = 1.0;
 	previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
 	[previewLayer setBackgroundColor:[[UIColor blackColor] CGColor]];
-	[previewLayer setVideoGravity:AVLayerVideoGravityResizeAspect];
+	[previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
     
 	CALayer *rootLayer = [previewView layer];
 	[rootLayer setMasksToBounds:YES];
@@ -365,31 +366,38 @@ bail:
 				else {
 					// trivial simple JPEG case
 					NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-					CFDictionaryRef attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, 
-																				imageDataSampleBuffer, 
-																				kCMAttachmentMode_ShouldPropagate);
+//					CFDictionaryRef attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, 
+//																				imageDataSampleBuffer, 
+//																				kCMAttachmentMode_ShouldPropagate);
                     
                     //Save to camera roll
-					ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-					[library writeImageDataToSavedPhotosAlbum:jpegData metadata:(id)attachments completionBlock:^(NSURL *assetURL, NSError *error) {
-						if (error) {
-							[self displayErrorOnMainQueue:error withMessage:@"Save to camera roll failed"];
-						}
-                        
-                        //save successfully, then show the thumbnail 
-                        resultThumb.frame = CGRectMake(0, 0, 320, 480);
-                        resultThumb.image = [UIImage imageWithData:jpegData];
-                        [UIView animateWithDuration:.5 animations:^{
-                            resultThumb.frame = CGRectMake(0, 480 - 96 , 64, 96);
-                        }];
-                        
-					}];
+//					ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+//					[library writeImageDataToSavedPhotosAlbum:jpegData metadata:(id)attachments completionBlock:^(NSURL *assetURL, NSError *error) {
+//						if (error) {
+//							//[self displayErrorOnMainQueue:error withMessage:@"Save to camera roll failed"];
+//						}else{
+//                        
+//                            dispatch_async(dispatch_get_main_queue(), ^{
+//                                [resultImageButton setImage:[UIImage imageWithData:jpegData] forState:UIControlStateNormal];
+//                            });
+//                            
+//                            //send "AddPhoto" for LocalThumbsVC to add photo 
+//                            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"AddPhoto" object:nil userInfo:[NSDictionary dictionaryWithObject:jpegData forKey:@"imageData"]] ];
+//                        }
+//                                                            
+//					}];
 					
-//                    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"AddPhoto" object:nil userInfo:[NSDictionary dictionaryWithObject:jpegData forKey:@"imageData"]] ];
-
-					if (attachments)
-						CFRelease(attachments);
-					[library release];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [resultImageButton setImage:[UIImage imageWithData:jpegData] forState:UIControlStateNormal];
+                    });
+                    
+                    //send "AddPhoto" for LocalThumbsVC to add photo 
+                    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"AddPhoto" object:nil userInfo:[NSDictionary dictionaryWithObject:jpegData forKey:@"imageData"]] ];
+                    
+                    
+//                    if (attachments)
+//						CFRelease(attachments);
+					//[library release];
 				}
 			}
 		}
@@ -607,6 +615,10 @@ static NSTimeInterval curDate = 0;
 			break;
 	}
 
+    if (!isCapturingFace) {
+        return;
+    }
+    
 	imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifOrientation] forKey:CIDetectorImageOrientation];
 	NSArray *features = [faceDetector featuresInImage:ciImage options:imageOptions];
 	[ciImage release];
@@ -625,7 +637,6 @@ static NSTimeInterval curDate = 0;
             }
         }
         curDate = [NSDate timeIntervalSinceReferenceDate];
-        //NSLog(@"curDate is %f",curDate);
         [self takePicture:nil];
     }
     
@@ -680,17 +691,57 @@ static NSTimeInterval curDate = 0;
 			break;
 		}
 	}
+    
+    [UIView animateWithDuration:0.5 animations:^{
+            previewView.layer.transform =  CATransform3DMakeRotation(M_PI*2,0.0,1.0,0.0);
+    }];
+    
 	isUsingFrontFacingCamera = !isUsingFrontFacingCamera;
 }
 
-- (void) setupKKThumbView{
-//    LocalImageRootViewController *ktThumbsVC = [[LocalImageRootViewController alloc] init];
-//    ktThumbsVC.view.frame = CGRectMake(0, 400, 320, 60);
-//    [self.view addSubview:ktThumbsVC.view];
-    //[ktThumbsVC autorelease];
+- (void) backToCamera{
+    [self.navController.view removeFromSuperview];
+    self.navController = nil;
     
+    isCapturingFace = YES;
     
+}
+- (IBAction) enterLocalThumbs:(id) sender{
+    isCapturingFace = NO;
     
+    if (thumbsViewController) {
+        if (!self.navController) {
+            self.navController = [[[UINavigationController alloc] init] autorelease];
+
+        }
+        [self.navController pushViewController:thumbsViewController animated:YES];
+        UIBarButtonItem *leftButton = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonSystemItemRewind target:self action:@selector(backToCamera)] autorelease];
+        thumbsViewController.navigationItem.leftBarButtonItem = leftButton;
+        
+        self.navController.view.alpha = 0;
+        [self.view addSubview:self.navController.view];
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            self.navController.view.alpha = 1; 
+        }];
+    }
+}
+- (void) onTap:(UIGestureRecognizer*)recognizer{
+    isCapturingFace = !isCapturingFace;
+    
+    if (isCapturingFace) {
+        tapImageView.alpha = 1.0;
+        tapImageView.image = [UIImage imageNamed:@"pause.png"];
+        [UIView animateWithDuration:1 animations:^{
+            tapImageView.alpha = 0;
+        }];
+    }else{
+        tapImageView.alpha = 1.0;
+        tapImageView.image = [UIImage imageNamed:@"start.png"];
+        [UIView animateWithDuration:1 animations:^{
+            tapImageView.alpha = 0;
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -704,25 +755,21 @@ static NSTimeInterval curDate = 0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    isCapturingFace = YES;
+    
+    if (!thumbsViewController) {
+        thumbsViewController = [[LocalImageRootViewController alloc] init];
+        thumbsViewController.view.frame = CGRectMake(0, 0, 320, 480);
+    }
 	// Do any additional setup after loading the view, typically from a nib.
 	[self setupAVCapture];
 	square = [[UIImage imageNamed:@"squarePNG"] retain];
 	NSDictionary *detectorOptions = [[NSDictionary alloc] initWithObjectsAndKeys:CIDetectorAccuracyLow, CIDetectorAccuracy, nil];
 	faceDetector = [[CIDetector detectorOfType:CIDetectorTypeFace context:nil options:detectorOptions] retain];
 	[detectorOptions release];
-    //[self setupKKThumbView];
     
-    resultThumb.alpha = 0.5;
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"AddPhoto" object:nil queue:[NSOperationQueue currentQueue] usingBlock:^(NSNotification *note) {
-        //UIButton *thumbButton = (UIButton*)[self.view viewWithTag:1001];
-        NSLog(@"%s",__PRETTY_FUNCTION__);
-
-        NSData *jpegData = (NSData*)[[note userInfo] objectForKey:@"imageData"];
-        UIImage *image = [UIImage imageWithData:jpegData];
-        
-        resultThumb.image = image;
-    }];
+    UIGestureRecognizer *tapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)] autorelease];
+    [previewView addGestureRecognizer:tapRecognizer];
 }
 
 - (void)viewDidUnload

@@ -7,13 +7,18 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 @class CIDetector;
+@class LocalImageRootViewController;
 
 @interface SquareCamViewController : UIViewController <UIGestureRecognizerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
 {
 	IBOutlet UIView *previewView;
-    IBOutlet UIImageView *resultThumb;
+    IBOutlet UIImageView *tapImageView;
     IBOutlet UIButton *switchCamButton;
-	//IBOutlet UISegmentedControl *camerasControl;
+    IBOutlet UIButton *resultImageButton;
+    UINavigationController *navController_;
+    LocalImageRootViewController *thumbsViewController;
+    BOOL isCapturingFace;
+    
 	AVCaptureVideoPreviewLayer *previewLayer;
 	AVCaptureVideoDataOutput *videoDataOutput;
 	BOOL detectFaces;
@@ -27,6 +32,7 @@
 	CGFloat effectiveScale;
 }
 
+@property (nonatomic, retain)  UINavigationController *navController;
 - (IBAction)takePicture:(id)sender;
 - (IBAction)switchCameras:(id)sender;
 //- (IBAction)handlePinchGesture:(UIGestureRecognizer *)sender;

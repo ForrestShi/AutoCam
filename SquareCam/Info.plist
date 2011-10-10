@@ -43,5 +43,7 @@
 		<string>Icon.png</string>
 		<string>Icon@2x.png</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
 </dict>
 </plist>

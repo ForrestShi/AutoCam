@@ -32,11 +32,11 @@
    
    [self setTitle:NSLocalizedString(@"Photo Album", @"Photo Album screen title.")];
    
-   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
-                                                                              target:self
-                                                                              action:@selector(addPhoto)];
-   [[self navigationItem] setRightBarButtonItem:addButton];
-   [addButton release];
+//   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
+//                                                                              target:self
+//                                                                              action:@selector(addPhoto)];
+//   [[self navigationItem] setRightBarButtonItem:addButton];
+//   [addButton release];
    
    if (myPhotos_ == nil) {
       myPhotos_ = [[Photos alloc] init];

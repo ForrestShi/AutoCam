@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
-
 @interface UIImage (RotationMethods)
 - (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
 @end
