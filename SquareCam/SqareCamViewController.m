@@ -35,6 +35,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 @implementation SquareCamViewController
 
 @synthesize navController = navController_;
+@synthesize capturingFace;
 
 - (void)setupAVCapture
 {
@@ -615,7 +616,7 @@ static NSTimeInterval curDate = 0;
 			break;
 	}
 
-    if (!isCapturingFace) {
+    if (!self.capturingFace) {
         return;
     }
     
@@ -686,16 +687,23 @@ static NSTimeInterval curDate = 0;
 			for (AVCaptureInput *oldInput in [[previewLayer session] inputs]) {
 				[[previewLayer session] removeInput:oldInput];
 			}
-			[[previewLayer session] addInput:input];
-			[[previewLayer session] commitConfiguration];
+	
+            [UIView animateWithDuration:0.5 animations:^{
+                    //
+                CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
+                rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI];
+                rotationAnimation.duration = .1;
+                [previewView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation1"];
+                
+            } completion:^(BOOL finished) {
+                [[previewLayer session] addInput:input];
+                [[previewLayer session] commitConfiguration];
+                
+            }];
 			break;
 		}
 	}
-    
-    [UIView animateWithDuration:0.5 animations:^{
-            previewView.layer.transform =  CATransform3DMakeRotation(M_PI*2,0.0,1.0,0.0);
-    }];
-    
+
 	isUsingFrontFacingCamera = !isUsingFrontFacingCamera;
 }
 
@@ -703,11 +711,11 @@ static NSTimeInterval curDate = 0;
     [self.navController.view removeFromSuperview];
     self.navController = nil;
     
-    isCapturingFace = YES;
+    self.capturingFace = YES;
     
 }
 - (IBAction) enterLocalThumbs:(id) sender{
-    isCapturingFace = NO;
+    self.capturingFace = NO;
     
     if (thumbsViewController) {
         if (!self.navController) {
@@ -715,7 +723,7 @@ static NSTimeInterval curDate = 0;
 
         }
         [self.navController pushViewController:thumbsViewController animated:YES];
-        UIBarButtonItem *leftButton = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonSystemItemRewind target:self action:@selector(backToCamera)] autorelease];
+        UIBarButtonItem *leftButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonSystemItemRewind target:self action:@selector(backToCamera)] autorelease];
         thumbsViewController.navigationItem.leftBarButtonItem = leftButton;
         
         self.navController.view.alpha = 0;
@@ -726,22 +734,28 @@ static NSTimeInterval curDate = 0;
         }];
     }
 }
-- (void) onTap:(UIGestureRecognizer*)recognizer{
-    isCapturingFace = !isCapturingFace;
+- (void) setCapturingFace:(BOOL)aCapturingFace{
     
-    if (isCapturingFace) {
+    capturingFace = aCapturingFace;
+    
+    if (capturingFace) {
         tapImageView.alpha = 1.0;
         tapImageView.image = [UIImage imageNamed:@"pause.png"];
         [UIView animateWithDuration:1 animations:^{
-            tapImageView.alpha = 0;
+            tapImageView.alpha = 0.7;
         }];
     }else{
         tapImageView.alpha = 1.0;
         tapImageView.image = [UIImage imageNamed:@"start.png"];
         [UIView animateWithDuration:1 animations:^{
-            tapImageView.alpha = 0;
+            tapImageView.alpha = 0.7;
         }];
     }
+    
+}
+
+- (void) onTap:(UIGestureRecognizer*)recognizer{
+    self.capturingFace = !(self.capturingFace);
 }
 
 - (void)didReceiveMemoryWarning
@@ -755,7 +769,8 @@ static NSTimeInterval curDate = 0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    isCapturingFace = YES;
+    
+    self.capturingFace = NO;
     
     if (!thumbsViewController) {
         thumbsViewController = [[LocalImageRootViewController alloc] init];

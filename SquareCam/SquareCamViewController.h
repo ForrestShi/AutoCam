@@ -17,7 +17,7 @@
     IBOutlet UIButton *resultImageButton;
     UINavigationController *navController_;
     LocalImageRootViewController *thumbsViewController;
-    BOOL isCapturingFace;
+    BOOL capturingFace;
     
 	AVCaptureVideoPreviewLayer *previewLayer;
 	AVCaptureVideoDataOutput *videoDataOutput;
@@ -33,6 +33,8 @@
 }
 
 @property (nonatomic, retain)  UINavigationController *navController;
+@property (nonatomic, assign)  BOOL capturingFace;
+
 - (IBAction)takePicture:(id)sender;
 - (IBAction)switchCameras:(id)sender;
 //- (IBAction)handlePinchGesture:(UIGestureRecognizer *)sender;
