@@ -37,7 +37,7 @@
 
 - (IBAction)takePicture:(id)sender;
 - (IBAction)switchCameras:(id)sender;
-//- (IBAction)handlePinchGesture:(UIGestureRecognizer *)sender;
-//- (IBAction)toggleFaceDetection:(id)sender;
+- (IBAction)handlePinchGesture:(UIGestureRecognizer *)sender;
+- (IBAction)onInfoButton:(id)sender;
 
 @end

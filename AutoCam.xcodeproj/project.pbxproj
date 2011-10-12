@@ -51,6 +51,16 @@
 		A86A605B1443086D0014AF30 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A86A60571443086D0014AF30 /* pause.png */; };
 		A86A605C1443086D0014AF30 /* pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A86A60581443086D0014AF30 /* pause@2x.png */; };
 		A86A605D1443086D0014AF30 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = A86A60591443086D0014AF30 /* start.png */; };
+		A86A606C144337E00014AF30 /* LARSAdController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86A6069144337E00014AF30 /* LARSAdController.m */; };
+		A86A606D144337E00014AF30 /* LARSAdController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A86A606A144337E00014AF30 /* LARSAdController.podspec */; };
+		A86A606E144337E00014AF30 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A86A606B144337E00014AF30 /* README.md */; };
+		A86A6079144338830014AF30 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A86A6077144338830014AF30 /* libGoogleAdMobAds.a */; };
+		A86A607A144338830014AF30 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = A86A6078144338830014AF30 /* README.txt */; };
+		A86A607C144338CA0014AF30 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86A607B144338CA0014AF30 /* iAd.framework */; };
+		A86A60801443393F0014AF30 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86A607F1443393F0014AF30 /* SystemConfiguration.framework */; };
+		A8BA60C1144461230064132A /* Icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = A8BA60BE144461230064132A /* Icon-58.png */; };
+		A8BA60C2144461230064132A /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = A8BA60BF144461230064132A /* Icon-72.png */; };
+		A8BA60C3144461230064132A /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8BA60C0144461230064132A /* Icon-72@2x.png */; };
 		A8DE74FC1442C7D500FBEE12 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DE74FB1442C7D500FBEE12 /* camera.png */; };
 /* End PBXBuildFile section */
 
@@ -99,7 +109,7 @@
 		1B3C9A2F139D4E5F0042676B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		1B3C9A31139D4E740042676B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1B3C9A33139D4EAA0042676B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		1B867FD8139D4AD300AD6B47 /* AutoCam Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AutoCam Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B867FD8139D4AD300AD6B47 /* AutoCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B867FDC139D4AD300AD6B47 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1B867FDE139D4AD300AD6B47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1B867FE0139D4AD300AD6B47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -118,6 +128,24 @@
 		A86A60571443086D0014AF30 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = SOURCE_ROOT; };
 		A86A60581443086D0014AF30 /* pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause@2x.png"; sourceTree = SOURCE_ROOT; };
 		A86A60591443086D0014AF30 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = SOURCE_ROOT; };
+		A86A6068144337E00014AF30 /* LARSAdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LARSAdController.h; sourceTree = "<group>"; };
+		A86A6069144337E00014AF30 /* LARSAdController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LARSAdController.m; sourceTree = "<group>"; };
+		A86A606A144337E00014AF30 /* LARSAdController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LARSAdController.podspec; sourceTree = "<group>"; };
+		A86A606B144337E00014AF30 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		A86A6071144338830014AF30 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		A86A6072144338830014AF30 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		A86A6073144338830014AF30 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		A86A6074144338830014AF30 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		A86A6075144338830014AF30 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		A86A6076144338830014AF30 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		A86A6077144338830014AF30 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		A86A6078144338830014AF30 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		A86A607B144338CA0014AF30 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		A86A607D144339130014AF30 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A86A607F1443393F0014AF30 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A8BA60BE144461230064132A /* Icon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-58.png"; sourceTree = SOURCE_ROOT; };
+		A8BA60BF144461230064132A /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = SOURCE_ROOT; };
+		A8BA60C0144461230064132A /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
 		A8DE74FB1442C7D500FBEE12 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -126,6 +154,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A86A60801443393F0014AF30 /* SystemConfiguration.framework in Frameworks */,
+				A86A607C144338CA0014AF30 /* iAd.framework in Frameworks */,
 				189A10D0143EF74C0076115C /* MessageUI.framework in Frameworks */,
 				189701A6143DA4DA00F3954D /* AudioToolbox.framework in Frameworks */,
 				1B3C9A34139D4EAA0042676B /* ImageIO.framework in Frameworks */,
@@ -138,6 +168,7 @@
 				1B3C9A27139D4E0F0042676B /* CoreVideo.framework in Frameworks */,
 				1B867FDD139D4AD300AD6B47 /* UIKit.framework in Frameworks */,
 				1B867FDF139D4AD300AD6B47 /* Foundation.framework in Frameworks */,
+				A86A6079144338830014AF30 /* libGoogleAdMobAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,10 +238,11 @@
 		1B867FCD139D4AD300AD6B47 = {
 			isa = PBXGroup;
 			children = (
+				2BA4851913F1EC39000BABB3 /* ReadMe.txt */,
+				A86A6067144337E00014AF30 /* LARSAdController */,
 				189A10D7143F03960076115C /* Utility Classes */,
 				189A10BC143EF17A0076115C /* KTPhoto */,
 				189A10CE143EF6C80076115C /* LocalKTPhoto */,
-				2BA4851913F1EC39000BABB3 /* ReadMe.txt */,
 				1B867FE2139D4AD300AD6B47 /* App */,
 				1B867FDB139D4AD300AD6B47 /* Frameworks */,
 				1B867FD9139D4AD300AD6B47 /* Products */,
@@ -220,7 +252,7 @@
 		1B867FD9139D4AD300AD6B47 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1B867FD8139D4AD300AD6B47 /* AutoCam Lite.app */,
+				1B867FD8139D4AD300AD6B47 /* AutoCamera.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,6 +260,9 @@
 		1B867FDB139D4AD300AD6B47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A86A607F1443393F0014AF30 /* SystemConfiguration.framework */,
+				A86A607D144339130014AF30 /* CFNetwork.framework */,
+				A86A607B144338CA0014AF30 /* iAd.framework */,
 				189A10CF143EF74C0076115C /* MessageUI.framework */,
 				189701A5143DA4DA00F3954D /* AudioToolbox.framework */,
 				1B3C9A33139D4EAA0042676B /* ImageIO.framework */,
@@ -262,6 +297,9 @@
 		1B867FE3139D4AD300AD6B47 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A8BA60BE144461230064132A /* Icon-58.png */,
+				A8BA60BF144461230064132A /* Icon-72.png */,
+				A8BA60C0144461230064132A /* Icon-72@2x.png */,
 				A86A60561443086D0014AF30 /* start@2x.png */,
 				A86A60571443086D0014AF30 /* pause.png */,
 				A86A60581443086D0014AF30 /* pause@2x.png */,
@@ -277,6 +315,34 @@
 				2BA4851513F1E6DB000BABB3 /* squarePNG.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A86A6067144337E00014AF30 /* LARSAdController */ = {
+			isa = PBXGroup;
+			children = (
+				A86A6070144338830014AF30 /* GoogleAdMobAdsSDK */,
+				A86A6068144337E00014AF30 /* LARSAdController.h */,
+				A86A6069144337E00014AF30 /* LARSAdController.m */,
+				A86A606A144337E00014AF30 /* LARSAdController.podspec */,
+				A86A606B144337E00014AF30 /* README.md */,
+			);
+			path = LARSAdController;
+			sourceTree = "<group>";
+		};
+		A86A6070144338830014AF30 /* GoogleAdMobAdsSDK */ = {
+			isa = PBXGroup;
+			children = (
+				A86A6071144338830014AF30 /* GADBannerView.h */,
+				A86A6072144338830014AF30 /* GADBannerViewDelegate.h */,
+				A86A6073144338830014AF30 /* GADInterstitial.h */,
+				A86A6074144338830014AF30 /* GADInterstitialDelegate.h */,
+				A86A6075144338830014AF30 /* GADRequest.h */,
+				A86A6076144338830014AF30 /* GADRequestError.h */,
+				A86A6077144338830014AF30 /* libGoogleAdMobAds.a */,
+				A86A6078144338830014AF30 /* README.txt */,
+			);
+			name = GoogleAdMobAdsSDK;
+			path = ../GoogleAdMobAdsSDK;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,7 +362,7 @@
 			);
 			name = AutoCamLite;
 			productName = StacheCam;
-			productReference = 1B867FD8139D4AD300AD6B47 /* AutoCam Lite.app */;
+			productReference = 1B867FD8139D4AD300AD6B47 /* AutoCamera.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -345,6 +411,12 @@
 				A86A605B1443086D0014AF30 /* pause.png in Resources */,
 				A86A605C1443086D0014AF30 /* pause@2x.png in Resources */,
 				A86A605D1443086D0014AF30 /* start.png in Resources */,
+				A86A606D144337E00014AF30 /* LARSAdController.podspec in Resources */,
+				A86A606E144337E00014AF30 /* README.md in Resources */,
+				A86A607A144338830014AF30 /* README.txt in Resources */,
+				A8BA60C1144461230064132A /* Icon-58.png in Resources */,
+				A8BA60C2144461230064132A /* Icon-72.png in Resources */,
+				A8BA60C3144461230064132A /* Icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +444,7 @@
 				189A10CB143EF6C20076115C /* PhotoPickerController.m in Sources */,
 				189A10CC143EF6C20076115C /* Photos.m in Sources */,
 				189A10CD143EF6C20076115C /* UIImage+KTCategory.m in Sources */,
+				A86A606C144337E00014AF30 /* LARSAdController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,13 +543,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Shi Lin (NER6K732V4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shi Lin (NER6K732V4)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SquareCam/Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = SquareCam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = "AutoCam Lite";
-				PROVISIONING_PROFILE = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/GoogleAdMobAdsSDK\"",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/MyApps-aupqjfejjlmkhccituhlsrlchdlg/Build/Products/Debug-iphoneos\"",
+				);
+				PRODUCT_NAME = AutoCamera;
+				PROVISIONING_PROFILE = "5A4FE4C1-F370-4119-BA2A-7BB3321CED93";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5A4FE4C1-F370-4119-BA2A-7BB3321CED93";
 				SDKROOT = iphoneos5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -490,15 +572,72 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SquareCam/Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = SquareCam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = "AutoCam Lite";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/GoogleAdMobAdsSDK\"",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/MyApps-aupqjfejjlmkhccituhlsrlchdlg/Build/Products/Debug-iphoneos\"",
+				);
+				PRODUCT_NAME = AutoCamera;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
+		};
+		A8BA60C4144464A40064132A /* Dist */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Dist;
+		};
+		A8BA60C5144464A40064132A /* Dist */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SquareCam/Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = SquareCam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/GoogleAdMobAdsSDK\"",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/MyApps-aupqjfejjlmkhccituhlsrlchdlg/Build/Products/Debug-iphoneos\"",
+				);
+				PRODUCT_NAME = AutoCamera;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Dist;
 		};
 /* End XCBuildConfiguration section */
 
@@ -508,6 +647,7 @@
 			buildConfigurations = (
 				1B867FF8139D4AD300AD6B47 /* Debug */,
 				1B867FF9139D4AD300AD6B47 /* Release */,
+				A8BA60C4144464A40064132A /* Dist */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -517,6 +657,7 @@
 			buildConfigurations = (
 				1B867FFB139D4AD300AD6B47 /* Debug */,
 				1B867FFC139D4AD300AD6B47 /* Release */,
+				A8BA60C5144464A40064132A /* Dist */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

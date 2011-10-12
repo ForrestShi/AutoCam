@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1B867FD7139D4AD300AD6B47"
-               BuildableName = "AutoCam Lite.app"
+               BuildableName = "AutoCamera.app"
                BlueprintName = "AutoCamLite"
                ReferencedContainer = "container:AutoCam.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1B867FD7139D4AD300AD6B47"
-            BuildableName = "AutoCam Lite.app"
+            BuildableName = "AutoCamera.app"
             BlueprintName = "AutoCamLite"
             ReferencedContainer = "container:AutoCam.xcodeproj">
          </BuildableReference>
@@ -50,7 +50,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1B867FD7139D4AD300AD6B47"
-            BuildableName = "AutoCam Lite.app"
+            BuildableName = "AutoCamera.app"
             BlueprintName = "AutoCamLite"
             ReferencedContainer = "container:AutoCam.xcodeproj">
          </BuildableReference>
@@ -68,7 +68,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1B867FD7139D4AD300AD6B47"
-            BuildableName = "AutoCam Lite.app"
+            BuildableName = "AutoCamera.app"
             BlueprintName = "AutoCamLite"
             ReferencedContainer = "container:AutoCam.xcodeproj">
          </BuildableReference>
@@ -78,7 +78,7 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Dist"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

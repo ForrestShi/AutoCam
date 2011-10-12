@@ -18,6 +18,8 @@
 #import "LocalImageRootViewController.h"
 #import "ImageUtility.h"
 
+#import "LARSAdController.h"
+
 #pragma mark-
 // used for KVO observation of the @"capturingStillImage" property to perform flash bulb animation
 static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCaptureStillImageIsCapturingStillImageContext";
@@ -58,10 +60,11 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 	
     
     // add Torch button
-    if ([device hasTorch]) {
-        DDExpandableButton *torchModeButton = [self torchModeButton]; 
-		[[self view] addSubview:torchModeButton];
-	}
+    // TODO 
+//    if ([device hasTorch]) {
+//        DDExpandableButton *torchModeButton = [self torchModeButton]; 
+//		[[self view] addSubview:torchModeButton];
+//	}
     // add switch button for Front/Back camera
     if (![self hasFrontCamera ]) {
         switchCamButton.alpha = 0;
@@ -686,20 +689,14 @@ static NSTimeInterval curDate = 0;
 			AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:d error:nil];
 			for (AVCaptureInput *oldInput in [[previewLayer session] inputs]) {
 				[[previewLayer session] removeInput:oldInput];
-			}
-	
-            [UIView animateWithDuration:0.5 animations:^{
-                    //
-                CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
-                rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI];
-                rotationAnimation.duration = .1;
-                [previewView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation1"];
-                
-            } completion:^(BOOL finished) {
-                [[previewLayer session] addInput:input];
-                [[previewLayer session] commitConfiguration];
-                
-            }];
+			}            
+            [[previewLayer session] addInput:input];
+            [[previewLayer session] commitConfiguration];
+            
+            CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
+            rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI];
+            rotationAnimation.duration = .2;
+            [previewView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation1"];
 			break;
 		}
 	}
@@ -719,11 +716,11 @@ static NSTimeInterval curDate = 0;
     
     if (thumbsViewController) {
         if (!self.navController) {
-            self.navController = [[[UINavigationController alloc] init] autorelease];
+            self.navController = [[[UINavigationController alloc] initWithRootViewController:thumbsViewController] autorelease];
 
         }
-        [self.navController pushViewController:thumbsViewController animated:YES];
-        UIBarButtonItem *leftButton = [[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonSystemItemRewind target:self action:@selector(backToCamera)] autorelease];
+        //[self.navController pushViewController:thumbsViewController animated:YES];
+        UIBarButtonItem *leftButton = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonSystemItemRewind target:self action:@selector(backToCamera)] autorelease];
         thumbsViewController.navigationItem.leftBarButtonItem = leftButton;
         
         self.navController.view.alpha = 0;
@@ -774,7 +771,7 @@ static NSTimeInterval curDate = 0;
     
     if (!thumbsViewController) {
         thumbsViewController = [[LocalImageRootViewController alloc] init];
-        thumbsViewController.view.frame = CGRectMake(0, 0, 320, 480);
+        //thumbsViewController.view.frame = CGRectMake(0, 0, 320, 480);
     }
 	// Do any additional setup after loading the view, typically from a nib.
 	[self setupAVCapture];
@@ -802,6 +799,7 @@ static NSTimeInterval curDate = 0;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [[LARSAdController sharedManager] addAdContainerToView:self.view withParentViewController:self];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -817,7 +815,7 @@ static NSTimeInterval curDate = 0;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
@@ -826,6 +824,11 @@ static NSTimeInterval curDate = 0;
 		beginGestureScale = effectiveScale;
 	}
 	return YES;
+}
+
+
+- (IBAction)onInfoButton:(id)sender{
+        
 }
 
 // scale image depending on users pinch gesture
