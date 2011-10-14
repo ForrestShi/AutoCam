@@ -707,8 +707,7 @@ static NSTimeInterval curDate = 0;
 - (void) backToCamera{
     [self.navController.view removeFromSuperview];
     self.navController = nil;
-    
-    self.capturingFace = YES;
+    self.capturingFace = NO;
     
 }
 - (IBAction) enterLocalThumbs:(id) sender{
@@ -799,7 +798,21 @@ static NSTimeInterval curDate = 0;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [[LARSAdController sharedManager] addAdContainerToView:self.view withParentViewController:self];
+     
+    NSString *plistFile = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
+    NSDictionary *plistDict = [NSDictionary dictionaryWithContentsOfFile:plistFile];
+  //  NSLog(@"plist %@",plistDict);
+    isLiteVersion = [[plistDict objectForKey:@"isLiteVersion"] boolValue];
+    if (isLiteVersion) {
+        [[LARSAdController sharedManager] addAdContainerToView:self.view withParentViewController:self];
+    }else{
+        // Pro version 
+        // Removed iAd banner
+        // move resultImageButton to bottom 
+        CGRect oldFrame = resultImageButton.frame ;
+        oldFrame.origin.y += 60;
+        resultImageButton.frame = oldFrame;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -815,7 +828,7 @@ static NSTimeInterval curDate = 0;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-	return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+	return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer

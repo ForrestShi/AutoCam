@@ -32,7 +32,11 @@
       // Set default values.
       thumbsHaveBorder_ = YES;
       thumbsPerRow_ = NSIntegerMin; // Forces caluation because on view size.
-      thumbSize_ = CGSizeMake(75, 75);
+       if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+           thumbSize_ = CGSizeMake(75, 75);
+       } else{
+           thumbSize_ = CGSizeMake(96, 128);
+       }
       
       // We keep a collection of reusable thumbnail
       // views. This improves performance by not

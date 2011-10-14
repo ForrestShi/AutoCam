@@ -30,6 +30,8 @@
 	CIDetector *faceDetector;
 	CGFloat beginGestureScale;
 	CGFloat effectiveScale;
+    
+    BOOL isLiteVersion;  
 }
 
 @property (nonatomic, retain)  UINavigationController *navController;

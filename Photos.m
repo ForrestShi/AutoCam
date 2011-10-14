@@ -152,8 +152,14 @@
 }
 
 - (void)savePhoto:(UIImage *)photo asThumbnailNamed:(NSString *)name {
-   UIImage *thumbnail = [photo imageScaleAndCropToMaxSize:CGSizeMake(75,75)];
-   NSString *thumbnailPath = [[self thumbnailsPath] stringByAppendingPathComponent:name];
+    CGSize thumbSize_ = CGSizeMake(75, 75);
+
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        thumbSize_ = CGSizeMake(96, 128);
+    } 
+    UIImage *thumbnail = [photo imageScaleAndCropToMaxSize:thumbSize_];
+
+    NSString *thumbnailPath = [[self thumbnailsPath] stringByAppendingPathComponent:name];
    [self savePhoto:thumbnail toPath:thumbnailPath];
 }
 

@@ -58,10 +58,73 @@
 		A86A607A144338830014AF30 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = A86A6078144338830014AF30 /* README.txt */; };
 		A86A607C144338CA0014AF30 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86A607B144338CA0014AF30 /* iAd.framework */; };
 		A86A60801443393F0014AF30 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86A607F1443393F0014AF30 /* SystemConfiguration.framework */; };
-		A8BA60C1144461230064132A /* Icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = A8BA60BE144461230064132A /* Icon-58.png */; };
 		A8BA60C2144461230064132A /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = A8BA60BF144461230064132A /* Icon-72.png */; };
 		A8BA60C3144461230064132A /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8BA60C0144461230064132A /* Icon-72@2x.png */; };
 		A8DE74FC1442C7D500FBEE12 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DE74FB1442C7D500FBEE12 /* camera.png */; };
+		A8EACD121446FB54000F9267 /* SquareCamAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA4850413F1E6AA000BABB3 /* SquareCamAppDelegate.m */; };
+		A8EACD131446FB54000F9267 /* SqareCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA4850613F1E6AA000BABB3 /* SqareCamViewController.m */; };
+		A8EACD141446FB54000F9267 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA4851313F1E6DB000BABB3 /* main.m */; };
+		A8EACD151446FB54000F9267 /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 189701A3143DA3E100F3954D /* SoundEffect.m */; };
+		A8EACD161446FB54000F9267 /* DDExpandableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A107D143ECD0E0076115C /* DDExpandableButton.m */; };
+		A8EACD171446FB54000F9267 /* UIViewController+CameraSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A1084143ECF7B0076115C /* UIViewController+CameraSetup.m */; };
+		A8EACD181446FB54000F9267 /* UIImage+RotationMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A1087143ED9660076115C /* UIImage+RotationMethods.m */; };
+		A8EACD191446FB54000F9267 /* KTPhotoBrowserGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A10AB143EF1700076115C /* KTPhotoBrowserGlobal.m */; };
+		A8EACD1A1446FB54000F9267 /* KTPhotoScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A10AD143EF1700076115C /* KTPhotoScrollViewController.m */; };
+		A8EACD1B1446FB54000F9267 /* KTPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A10AF143EF1700076115C /* KTPhotoView.m */; };
+		A8EACD1C1446FB54000F9267 /* KTThumbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A10B1143EF1700076115C /* KTThumbsViewController.m */; };
+		A8EACD1D1446FB54000F9267 /* KTThumbsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A10B3143EF1710076115C /* KTThumbsView.m */; };
+		A8EACD1E1446FB54000F9267 /* KTThumbView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A10B5143EF1710076115C /* KTThumbView.m */; };
+		A8EACD1F1446FB54000F9267 /* LocalImageRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A10C3143EF6C20076115C /* LocalImageRootViewController.m */; };
+		A8EACD201446FB54000F9267 /* PhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A10C5143EF6C20076115C /* PhotoPickerController.m */; };
+		A8EACD211446FB54000F9267 /* Photos.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A10C7143EF6C20076115C /* Photos.m */; };
+		A8EACD221446FB54000F9267 /* UIImage+KTCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A10C9143EF6C20076115C /* UIImage+KTCategory.m */; };
+		A8EACD231446FB54000F9267 /* LARSAdController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86A6069144337E00014AF30 /* LARSAdController.m */; };
+		A8EACD251446FB54000F9267 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86A607F1443393F0014AF30 /* SystemConfiguration.framework */; };
+		A8EACD261446FB54000F9267 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86A607B144338CA0014AF30 /* iAd.framework */; };
+		A8EACD271446FB54000F9267 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189A10CF143EF74C0076115C /* MessageUI.framework */; };
+		A8EACD281446FB54000F9267 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189701A5143DA4DA00F3954D /* AudioToolbox.framework */; };
+		A8EACD291446FB54000F9267 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C9A33139D4EAA0042676B /* ImageIO.framework */; };
+		A8EACD2A1446FB54000F9267 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C9A31139D4E740042676B /* QuartzCore.framework */; };
+		A8EACD2B1446FB54000F9267 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C9A2F139D4E5F0042676B /* CoreMedia.framework */; };
+		A8EACD2C1446FB54000F9267 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B867FE0139D4AD300AD6B47 /* CoreGraphics.framework */; };
+		A8EACD2D1446FB54000F9267 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C9A2D139D4E350042676B /* AssetsLibrary.framework */; };
+		A8EACD2E1446FB54000F9267 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C9A2B139D4E1C0042676B /* CoreImage.framework */; };
+		A8EACD2F1446FB54000F9267 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C9A29139D4E150042676B /* AVFoundation.framework */; };
+		A8EACD301446FB54000F9267 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C9A26139D4E0F0042676B /* CoreVideo.framework */; };
+		A8EACD311446FB54000F9267 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B867FDC139D4AD300AD6B47 /* UIKit.framework */; };
+		A8EACD321446FB54000F9267 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B867FDE139D4AD300AD6B47 /* Foundation.framework */; };
+		A8EACD331446FB54000F9267 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A86A6077144338830014AF30 /* libGoogleAdMobAds.a */; };
+		A8EACD351446FB54000F9267 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B867FEE139D4AD300AD6B47 /* MainStoryboard_iPhone.storyboard */; };
+		A8EACD361446FB54000F9267 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B867FF1139D4AD300AD6B47 /* MainStoryboard_iPad.storyboard */; };
+		A8EACD371446FB54000F9267 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA4850C13F1E6CC000BABB3 /* MainStoryboard_iPad.storyboard */; };
+		A8EACD381446FB54000F9267 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA4850E13F1E6CC000BABB3 /* MainStoryboard_iPhone.storyboard */; };
+		A8EACD391446FB54000F9267 /* squarePNG.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BA4851513F1E6DB000BABB3 /* squarePNG.png */; };
+		A8EACD3A1446FB54000F9267 /* ReadMe.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BA4851913F1EC39000BABB3 /* ReadMe.txt */; };
+		A8EACD3B1446FB54000F9267 /* Flash.png in Resources */ = {isa = PBXBuildFile; fileRef = 189A107F143ECD250076115C /* Flash.png */; };
+		A8EACD3C1446FB54000F9267 /* Flash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189A1080143ECD250076115C /* Flash@2x.png */; };
+		A8EACD3D1446FB54000F9267 /* KTPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 189A10BD143EF1910076115C /* KTPhotoBrowser.bundle */; };
+		A8EACD3E1446FB54000F9267 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 189A10D8143F04D10076115C /* Icon.png */; };
+		A8EACD3F1446FB54000F9267 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189A10D9143F04D10076115C /* Icon@2x.png */; };
+		A8EACD401446FB54000F9267 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DE74FB1442C7D500FBEE12 /* camera.png */; };
+		A8EACD411446FB54000F9267 /* start@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A86A60561443086D0014AF30 /* start@2x.png */; };
+		A8EACD421446FB54000F9267 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A86A60571443086D0014AF30 /* pause.png */; };
+		A8EACD431446FB54000F9267 /* pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A86A60581443086D0014AF30 /* pause@2x.png */; };
+		A8EACD441446FB54000F9267 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = A86A60591443086D0014AF30 /* start.png */; };
+		A8EACD451446FB54000F9267 /* LARSAdController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A86A606A144337E00014AF30 /* LARSAdController.podspec */; };
+		A8EACD461446FB54000F9267 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A86A606B144337E00014AF30 /* README.md */; };
+		A8EACD471446FB54000F9267 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = A86A6078144338830014AF30 /* README.txt */; };
+		A8EACD491446FB54000F9267 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = A8BA60BF144461230064132A /* Icon-72.png */; };
+		A8EACD4A1446FB54000F9267 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8BA60C0144461230064132A /* Icon-72@2x.png */; };
+		A8EACD6E144715D4000F9267 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = A8EACD65144715D4000F9267 /* Icon-72.png */; };
+		A8EACD6F144715D4000F9267 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8EACD66144715D4000F9267 /* Icon-72@2x.png */; };
+		A8EACD70144715D4000F9267 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A8EACD67144715D4000F9267 /* Icon-Small-50.png */; };
+		A8EACD71144715D4000F9267 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A8EACD68144715D4000F9267 /* Icon-Small.png */; };
+		A8EACD72144715D4000F9267 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8EACD69144715D4000F9267 /* Icon-Small@2x.png */; };
+		A8EACD73144715D4000F9267 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A8EACD6A144715D4000F9267 /* Icon.png */; };
+		A8EACD74144715D4000F9267 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8EACD6B144715D4000F9267 /* Icon@2x.png */; };
+		A8EACD75144715D4000F9267 /* Icon512.png in Resources */ = {isa = PBXBuildFile; fileRef = A8EACD6C144715D4000F9267 /* Icon512.png */; };
+		A8EACD76144715D4000F9267 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = A8EACD6D144715D4000F9267 /* iTunesArtwork */; };
+		A8EACD781447176F000F9267 /* switchCam.png in Resources */ = {isa = PBXBuildFile; fileRef = A8EACD771447176F000F9267 /* switchCam.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,10 +206,21 @@
 		A86A607B144338CA0014AF30 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		A86A607D144339130014AF30 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		A86A607F1443393F0014AF30 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		A8BA60BE144461230064132A /* Icon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-58.png"; sourceTree = SOURCE_ROOT; };
 		A8BA60BF144461230064132A /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = SOURCE_ROOT; };
 		A8BA60C0144461230064132A /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
 		A8DE74FB1442C7D500FBEE12 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = SOURCE_ROOT; };
+		A8EACD4F1446FB54000F9267 /* AutoCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8EACD521446FB55000F9267 /* AutoCamLite copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "AutoCamLite copy-Info.plist"; path = "/Users/Forrest/workspace/myApps/AutoCam/AutoCamLite copy-Info.plist"; sourceTree = "<absolute>"; };
+		A8EACD65144715D4000F9267 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = SOURCE_ROOT; };
+		A8EACD66144715D4000F9267 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
+		A8EACD67144715D4000F9267 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = SOURCE_ROOT; };
+		A8EACD68144715D4000F9267 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = SOURCE_ROOT; };
+		A8EACD69144715D4000F9267 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = SOURCE_ROOT; };
+		A8EACD6A144715D4000F9267 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
+		A8EACD6B144715D4000F9267 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		A8EACD6C144715D4000F9267 /* Icon512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon512.png; sourceTree = SOURCE_ROOT; };
+		A8EACD6D144715D4000F9267 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = SOURCE_ROOT; };
+		A8EACD771447176F000F9267 /* switchCam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchCam.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +243,28 @@
 				1B867FDD139D4AD300AD6B47 /* UIKit.framework in Frameworks */,
 				1B867FDF139D4AD300AD6B47 /* Foundation.framework in Frameworks */,
 				A86A6079144338830014AF30 /* libGoogleAdMobAds.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8EACD241446FB54000F9267 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8EACD251446FB54000F9267 /* SystemConfiguration.framework in Frameworks */,
+				A8EACD261446FB54000F9267 /* iAd.framework in Frameworks */,
+				A8EACD271446FB54000F9267 /* MessageUI.framework in Frameworks */,
+				A8EACD281446FB54000F9267 /* AudioToolbox.framework in Frameworks */,
+				A8EACD291446FB54000F9267 /* ImageIO.framework in Frameworks */,
+				A8EACD2A1446FB54000F9267 /* QuartzCore.framework in Frameworks */,
+				A8EACD2B1446FB54000F9267 /* CoreMedia.framework in Frameworks */,
+				A8EACD2C1446FB54000F9267 /* CoreGraphics.framework in Frameworks */,
+				A8EACD2D1446FB54000F9267 /* AssetsLibrary.framework in Frameworks */,
+				A8EACD2E1446FB54000F9267 /* CoreImage.framework in Frameworks */,
+				A8EACD2F1446FB54000F9267 /* AVFoundation.framework in Frameworks */,
+				A8EACD301446FB54000F9267 /* CoreVideo.framework in Frameworks */,
+				A8EACD311446FB54000F9267 /* UIKit.framework in Frameworks */,
+				A8EACD321446FB54000F9267 /* Foundation.framework in Frameworks */,
+				A8EACD331446FB54000F9267 /* libGoogleAdMobAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +342,7 @@
 				1B867FE2139D4AD300AD6B47 /* App */,
 				1B867FDB139D4AD300AD6B47 /* Frameworks */,
 				1B867FD9139D4AD300AD6B47 /* Products */,
+				A8EACD521446FB55000F9267 /* AutoCamLite copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -253,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				1B867FD8139D4AD300AD6B47 /* AutoCamera.app */,
+				A8EACD4F1446FB54000F9267 /* AutoCamera.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -297,7 +395,16 @@
 		1B867FE3139D4AD300AD6B47 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A8BA60BE144461230064132A /* Icon-58.png */,
+				A8EACD771447176F000F9267 /* switchCam.png */,
+				A8EACD65144715D4000F9267 /* Icon-72.png */,
+				A8EACD66144715D4000F9267 /* Icon-72@2x.png */,
+				A8EACD67144715D4000F9267 /* Icon-Small-50.png */,
+				A8EACD68144715D4000F9267 /* Icon-Small.png */,
+				A8EACD69144715D4000F9267 /* Icon-Small@2x.png */,
+				A8EACD6A144715D4000F9267 /* Icon.png */,
+				A8EACD6B144715D4000F9267 /* Icon@2x.png */,
+				A8EACD6C144715D4000F9267 /* Icon512.png */,
+				A8EACD6D144715D4000F9267 /* iTunesArtwork */,
 				A8BA60BF144461230064132A /* Icon-72.png */,
 				A8BA60C0144461230064132A /* Icon-72@2x.png */,
 				A86A60561443086D0014AF30 /* start@2x.png */,
@@ -365,6 +472,23 @@
 			productReference = 1B867FD8139D4AD300AD6B47 /* AutoCamera.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A8EACD101446FB54000F9267 /* AutoCam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8EACD4B1446FB54000F9267 /* Build configuration list for PBXNativeTarget "AutoCam" */;
+			buildPhases = (
+				A8EACD111446FB54000F9267 /* Sources */,
+				A8EACD241446FB54000F9267 /* Frameworks */,
+				A8EACD341446FB54000F9267 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AutoCam;
+			productName = StacheCam;
+			productReference = A8EACD4F1446FB54000F9267 /* AutoCamera.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -386,6 +510,7 @@
 			projectRoot = "";
 			targets = (
 				1B867FD7139D4AD300AD6B47 /* AutoCamLite */,
+				A8EACD101446FB54000F9267 /* AutoCam */,
 			);
 		};
 /* End PBXProject section */
@@ -414,9 +539,46 @@
 				A86A606D144337E00014AF30 /* LARSAdController.podspec in Resources */,
 				A86A606E144337E00014AF30 /* README.md in Resources */,
 				A86A607A144338830014AF30 /* README.txt in Resources */,
-				A8BA60C1144461230064132A /* Icon-58.png in Resources */,
 				A8BA60C2144461230064132A /* Icon-72.png in Resources */,
 				A8BA60C3144461230064132A /* Icon-72@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8EACD341446FB54000F9267 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8EACD351446FB54000F9267 /* MainStoryboard_iPhone.storyboard in Resources */,
+				A8EACD361446FB54000F9267 /* MainStoryboard_iPad.storyboard in Resources */,
+				A8EACD371446FB54000F9267 /* MainStoryboard_iPad.storyboard in Resources */,
+				A8EACD381446FB54000F9267 /* MainStoryboard_iPhone.storyboard in Resources */,
+				A8EACD391446FB54000F9267 /* squarePNG.png in Resources */,
+				A8EACD3A1446FB54000F9267 /* ReadMe.txt in Resources */,
+				A8EACD3B1446FB54000F9267 /* Flash.png in Resources */,
+				A8EACD3C1446FB54000F9267 /* Flash@2x.png in Resources */,
+				A8EACD3D1446FB54000F9267 /* KTPhotoBrowser.bundle in Resources */,
+				A8EACD3E1446FB54000F9267 /* Icon.png in Resources */,
+				A8EACD3F1446FB54000F9267 /* Icon@2x.png in Resources */,
+				A8EACD401446FB54000F9267 /* camera.png in Resources */,
+				A8EACD411446FB54000F9267 /* start@2x.png in Resources */,
+				A8EACD421446FB54000F9267 /* pause.png in Resources */,
+				A8EACD431446FB54000F9267 /* pause@2x.png in Resources */,
+				A8EACD441446FB54000F9267 /* start.png in Resources */,
+				A8EACD451446FB54000F9267 /* LARSAdController.podspec in Resources */,
+				A8EACD461446FB54000F9267 /* README.md in Resources */,
+				A8EACD471446FB54000F9267 /* README.txt in Resources */,
+				A8EACD491446FB54000F9267 /* Icon-72.png in Resources */,
+				A8EACD4A1446FB54000F9267 /* Icon-72@2x.png in Resources */,
+				A8EACD6E144715D4000F9267 /* Icon-72.png in Resources */,
+				A8EACD6F144715D4000F9267 /* Icon-72@2x.png in Resources */,
+				A8EACD70144715D4000F9267 /* Icon-Small-50.png in Resources */,
+				A8EACD71144715D4000F9267 /* Icon-Small.png in Resources */,
+				A8EACD72144715D4000F9267 /* Icon-Small@2x.png in Resources */,
+				A8EACD73144715D4000F9267 /* Icon.png in Resources */,
+				A8EACD74144715D4000F9267 /* Icon@2x.png in Resources */,
+				A8EACD75144715D4000F9267 /* Icon512.png in Resources */,
+				A8EACD76144715D4000F9267 /* iTunesArtwork in Resources */,
+				A8EACD781447176F000F9267 /* switchCam.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +607,31 @@
 				189A10CC143EF6C20076115C /* Photos.m in Sources */,
 				189A10CD143EF6C20076115C /* UIImage+KTCategory.m in Sources */,
 				A86A606C144337E00014AF30 /* LARSAdController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8EACD111446FB54000F9267 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8EACD121446FB54000F9267 /* SquareCamAppDelegate.m in Sources */,
+				A8EACD131446FB54000F9267 /* SqareCamViewController.m in Sources */,
+				A8EACD141446FB54000F9267 /* main.m in Sources */,
+				A8EACD151446FB54000F9267 /* SoundEffect.m in Sources */,
+				A8EACD161446FB54000F9267 /* DDExpandableButton.m in Sources */,
+				A8EACD171446FB54000F9267 /* UIViewController+CameraSetup.m in Sources */,
+				A8EACD181446FB54000F9267 /* UIImage+RotationMethods.m in Sources */,
+				A8EACD191446FB54000F9267 /* KTPhotoBrowserGlobal.m in Sources */,
+				A8EACD1A1446FB54000F9267 /* KTPhotoScrollViewController.m in Sources */,
+				A8EACD1B1446FB54000F9267 /* KTPhotoView.m in Sources */,
+				A8EACD1C1446FB54000F9267 /* KTThumbsViewController.m in Sources */,
+				A8EACD1D1446FB54000F9267 /* KTThumbsView.m in Sources */,
+				A8EACD1E1446FB54000F9267 /* KTThumbView.m in Sources */,
+				A8EACD1F1446FB54000F9267 /* LocalImageRootViewController.m in Sources */,
+				A8EACD201446FB54000F9267 /* PhotoPickerController.m in Sources */,
+				A8EACD211446FB54000F9267 /* Photos.m in Sources */,
+				A8EACD221446FB54000F9267 /* UIImage+KTCategory.m in Sources */,
+				A8EACD231446FB54000F9267 /* LARSAdController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,6 +826,82 @@
 			};
 			name = Dist;
 		};
+		A8EACD4C1446FB54000F9267 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Shi Lin (NER6K732V4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shi Lin (NER6K732V4)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SquareCam/Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "AutoCamLite copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/GoogleAdMobAdsSDK\"",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/MyApps-aupqjfejjlmkhccituhlsrlchdlg/Build/Products/Debug-iphoneos\"",
+				);
+				PRODUCT_NAME = AutoCamera;
+				PROVISIONING_PROFILE = "5A4FE4C1-F370-4119-BA2A-7BB3321CED93";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5A4FE4C1-F370-4119-BA2A-7BB3321CED93";
+				SDKROOT = iphoneos5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A8EACD4D1446FB54000F9267 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SquareCam/Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "AutoCamLite copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/GoogleAdMobAdsSDK\"",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/MyApps-aupqjfejjlmkhccituhlsrlchdlg/Build/Products/Debug-iphoneos\"",
+				);
+				PRODUCT_NAME = AutoCamera;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A8EACD4E1446FB54000F9267 /* Dist */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SquareCam/Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "AutoCamLite copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/GoogleAdMobAdsSDK\"",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/MyApps-aupqjfejjlmkhccituhlsrlchdlg/Build/Products/Debug-iphoneos\"",
+				);
+				PRODUCT_NAME = AutoCamera;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Dist;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -658,6 +921,16 @@
 				1B867FFB139D4AD300AD6B47 /* Debug */,
 				1B867FFC139D4AD300AD6B47 /* Release */,
 				A8BA60C5144464A40064132A /* Dist */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8EACD4B1446FB54000F9267 /* Build configuration list for PBXNativeTarget "AutoCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8EACD4C1446FB54000F9267 /* Debug */,
+				A8EACD4D1446FB54000F9267 /* Release */,
+				A8EACD4E1446FB54000F9267 /* Dist */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

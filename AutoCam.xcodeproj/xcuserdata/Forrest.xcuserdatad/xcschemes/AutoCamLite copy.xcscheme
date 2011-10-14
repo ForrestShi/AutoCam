@@ -13,9 +13,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1B867FD7139D4AD300AD6B47"
+               BlueprintIdentifier = "A8EACD101446FB54000F9267"
                BuildableName = "AutoCamera.app"
-               BlueprintName = "AutoCamLite"
+               BlueprintName = "AutoCam"
                ReferencedContainer = "container:AutoCam.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -31,9 +31,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1B867FD7139D4AD300AD6B47"
+            BlueprintIdentifier = "A8EACD101446FB54000F9267"
             BuildableName = "AutoCamera.app"
-            BlueprintName = "AutoCamLite"
+            BlueprintName = "AutoCam"
             ReferencedContainer = "container:AutoCam.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -49,9 +49,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1B867FD7139D4AD300AD6B47"
+            BlueprintIdentifier = "A8EACD101446FB54000F9267"
             BuildableName = "AutoCamera.app"
-            BlueprintName = "AutoCamLite"
+            BlueprintName = "AutoCam"
             ReferencedContainer = "container:AutoCam.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -67,9 +67,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1B867FD7139D4AD300AD6B47"
+            BlueprintIdentifier = "A8EACD101446FB54000F9267"
             BuildableName = "AutoCamera.app"
-            BlueprintName = "AutoCamLite"
+            BlueprintName = "AutoCam"
             ReferencedContainer = "container:AutoCam.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -79,7 +79,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Dist"
-      customArchiveName = "AutoCam"
+      customArchiveName = "AutoCamera Pro"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
