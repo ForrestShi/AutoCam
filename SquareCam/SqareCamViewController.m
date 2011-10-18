@@ -19,6 +19,7 @@
 #import "ImageUtility.h"
 
 #import "LARSAdController.h"
+#import "AppConfigure.h"
 
 #pragma mark-
 // used for KVO observation of the @"capturingStillImage" property to perform flash bulb animation
@@ -54,7 +55,7 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 	AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
 	require( error == nil, bail );
 	
-    isUsingFrontFacingCamera = NO;
+    isUsingFrontFacingCamera = YES;
 	if ( [session canAddInput:deviceInput] )
 		[session addInput:deviceInput];
 	
@@ -370,38 +371,22 @@ bail:
 				else {
 					// trivial simple JPEG case
 					NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-//					CFDictionaryRef attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, 
-//																				imageDataSampleBuffer, 
-//																				kCMAttachmentMode_ShouldPropagate);
                     
-                    //Save to camera roll
-//					ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-//					[library writeImageDataToSavedPhotosAlbum:jpegData metadata:(id)attachments completionBlock:^(NSURL *assetURL, NSError *error) {
-//						if (error) {
-//							//[self displayErrorOnMainQueue:error withMessage:@"Save to camera roll failed"];
-//						}else{
-//                        
-//                            dispatch_async(dispatch_get_main_queue(), ^{
-//                                [resultImageButton setImage:[UIImage imageWithData:jpegData] forState:UIControlStateNormal];
-//                            });
-//                            
-//                            //send "AddPhoto" for LocalThumbsVC to add photo 
-//                            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"AddPhoto" object:nil userInfo:[NSDictionary dictionaryWithObject:jpegData forKey:@"imageData"]] ];
-//                        }
-//                                                            
-//					}];
-					
+
                     dispatch_async(dispatch_get_main_queue(), ^{
+        
                         [resultImageButton setImage:[UIImage imageWithData:jpegData] forState:UIControlStateNormal];
+                        CGRect oldFrame = resultImageButton.frame;
+                        CGRect fullScreen = [UIScreen mainScreen].applicationFrame;
+                        resultImageButton.frame = CGRectMake(0, 0, fullScreen.size.width, fullScreen.size.height);
+                        [UIView animateWithDuration:.2 animations:^{
+                            resultImageButton.frame = oldFrame;  
+                        }];
                     });
                     
                     //send "AddPhoto" for LocalThumbsVC to add photo 
                     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"AddPhoto" object:nil userInfo:[NSDictionary dictionaryWithObject:jpegData forKey:@"imageData"]] ];
-                    
-                    
-//                    if (attachments)
-//						CFRelease(attachments);
-					//[library release];
+    
 				}
 			}
 		}
@@ -565,9 +550,12 @@ bail:
 }
 
 static NSTimeInterval curDate = 0;
+static int noFaceCounts = 0;
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 {	
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+    
 	// got an image
 	CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
 	CFDictionaryRef attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, sampleBuffer, kCMAttachmentMode_ShouldPropagate);
@@ -626,22 +614,49 @@ static NSTimeInterval curDate = 0;
 	imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifOrientation] forKey:CIDetectorImageOrientation];
 	NSArray *features = [faceDetector featuresInImage:ciImage options:imageOptions];
 	[ciImage release];
-	
-    
-    int faceCount = [features count];
-    if (faceCount >= 1  ) {
-        //Captured two faces 
-        NSLog(@"Captured face count %d", faceCount);
+
+//    
+    int curFaceCount = [features count];
+    if (curFaceCount >= [[[AppConfigure sharedInstance] faceCount] intValue]) {
+        NSLog(@"Get faces %d", curFaceCount);
+        //reset 
+        noFaceCounts = 0; 
         
+        //Captured two faces         
         if (curDate != 0) {
            NSTimeInterval interval = [NSDate timeIntervalSinceReferenceDate] - curDate;
-           // NSLog(@"interval %f", interval);
             if (interval < 1 ) {
                 return;
             }
         }
         curDate = [NSDate timeIntervalSinceReferenceDate];
-        [self takePicture:nil];
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            tapImageView.image = [UIImage imageNamed:@"great"];
+            tipLabel.text = @"Wow, nice face !";
+            [self takePicture:nil];
+        });
+    }else{
+        noFaceCounts ++;
+        NSLog(@"No faces %d", noFaceCounts);
+        
+        if (noFaceCounts <= 10 ) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                tapImageView.image = [UIImage imageNamed:@"want.png"];
+                tipLabel.text = @"wanna human face ...";
+            });
+        }else if (noFaceCounts > 10 && noFaceCounts < 20 ) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                tapImageView.image = [UIImage imageNamed:@"noface.png"];
+                tipLabel.text = @"No faces, WHY ?!";
+            });
+        }else if (noFaceCounts >= 20 ) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                tapImageView.image = [UIImage imageNamed:@"angryface.png"];
+                tipLabel.text = @"Where are f**k faces ?";
+
+            });
+        }
     }
     
     // get the clean aperture
@@ -651,8 +666,10 @@ static NSTimeInterval curDate = 0;
 //	CGRect clap = CMVideoFormatDescriptionGetCleanAperture(fdesc, false /*originIsTopLeft == false*/);
 //	
 //	dispatch_async(dispatch_get_main_queue(), ^(void) {
+//        NSLog(@"DRAW %s",__PRETTY_FUNCTION__);
 //		[self drawFaceBoxesForFeatures:features forVideoBox:clap orientation:curDeviceOrientation];
 //	});
+
 }
 
 
@@ -716,11 +733,11 @@ static NSTimeInterval curDate = 0;
     if (thumbsViewController) {
         if (!self.navController) {
             self.navController = [[[UINavigationController alloc] initWithRootViewController:thumbsViewController] autorelease];
-
         }
-        //[self.navController pushViewController:thumbsViewController animated:YES];
-        UIBarButtonItem *leftButton = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonSystemItemRewind target:self action:@selector(backToCamera)] autorelease];
+       // [self.navController pushViewController:thumbsViewController animated:YES];
+        UIBarButtonItem *leftButton = [[[UIBarButtonItem alloc] initWithTitle:@"Camera" style:UIBarButtonSystemItemCamera target:self action:@selector(backToCamera)] autorelease];
         thumbsViewController.navigationItem.leftBarButtonItem = leftButton;
+        thumbsViewController.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
         
         self.navController.view.alpha = 0;
         [self.view addSubview:self.navController.view];
@@ -734,19 +751,35 @@ static NSTimeInterval curDate = 0;
     
     capturingFace = aCapturingFace;
     
-    if (capturingFace) {
-        tapImageView.alpha = 1.0;
-        tapImageView.image = [UIImage imageNamed:@"pause.png"];
-        [UIView animateWithDuration:1 animations:^{
-            tapImageView.alpha = 0.7;
-        }];
-    }else{
-        tapImageView.alpha = 1.0;
-        tapImageView.image = [UIImage imageNamed:@"start.png"];
-        [UIView animateWithDuration:1 animations:^{
-            tapImageView.alpha = 0.7;
-        }];
+    if ([[[AppConfigure sharedInstance] faceCount] intValue] > 1 ) {
+        // Just Capture US
+        // Do not display the "start/pause" , always in the status of "running"
+        dispatch_async(dispatch_get_main_queue(), ^{
+            capturingFace = YES;
+            tapImageView.alpha = 0;
+        });
+        return;
     }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (capturingFace) {
+            tapImageView.alpha = 1.0;
+            tapImageView.image = [UIImage imageNamed:@"pause.png"];
+            tipLabel.text = @"Tap to Stop ";
+            [UIView animateWithDuration:1 animations:^{
+                tapImageView.alpha = 0.7;
+            }];
+        }else{
+            tapImageView.alpha = 1.0;
+            tapImageView.image = [UIImage imageNamed:@"start.png"];
+            tipLabel.text = @"Tap to Start";
+            
+            [UIView animateWithDuration:1 animations:^{
+                tapImageView.alpha = 0.7;
+            }];
+        }
+    });
+
     
 }
 
@@ -770,8 +803,8 @@ static NSTimeInterval curDate = 0;
     
     if (!thumbsViewController) {
         thumbsViewController = [[LocalImageRootViewController alloc] init];
-        //thumbsViewController.view.frame = CGRectMake(0, 0, 320, 480);
     }
+        
 	// Do any additional setup after loading the view, typically from a nib.
 	[self setupAVCapture];
 	square = [[UIImage imageNamed:@"squarePNG"] retain];
@@ -798,19 +831,20 @@ static NSTimeInterval curDate = 0;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-     
-    NSString *plistFile = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
-    NSDictionary *plistDict = [NSDictionary dictionaryWithContentsOfFile:plistFile];
-  //  NSLog(@"plist %@",plistDict);
-    isLiteVersion = [[plistDict objectForKey:@"isLiteVersion"] boolValue];
-    if (isLiteVersion) {
+
+    if ([[AppConfigure sharedInstance] isLite]) {
         [[LARSAdController sharedManager] addAdContainerToView:self.view withParentViewController:self];
     }else{
         // Pro version 
         // Removed iAd banner
         // move resultImageButton to bottom 
         CGRect oldFrame = resultImageButton.frame ;
-        oldFrame.origin.y += 60;
+        
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            oldFrame.origin.y += LARS_PAD_AD_CONTAINER_HEIGHT;
+        }else{
+            oldFrame.origin.y += LARS_POD_AD_CONTAINER_HEIGHT;
+        }
         resultImageButton.frame = oldFrame;
     }
 }

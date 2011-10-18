@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11B26" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11C74" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
@@ -41,6 +41,13 @@
                                 <rect key="frame" x="112" y="153" width="96" height="96"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="ihe-RF-eDK">
+                                <rect key="frame" x="43" y="277" width="235" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fTP-WO-tqT">
                                 <rect key="frame" x="1" y="375" width="50" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -67,6 +74,7 @@
                         <outlet property="resultImageButton" destination="fTP-WO-tqT" id="wuu-Go-cNF"/>
                         <outlet property="switchCamButton" destination="yFH-k5-EnV" id="Tl8-Gi-QgL"/>
                         <outlet property="tapImageView" destination="ZEL-Y0-wg1" id="ep1-69-zWU"/>
+                        <outlet property="tipLabel" destination="ihe-RF-eDK" id="VjO-yz-Zm7"/>
                     </connections>
                 </viewController>
                 <customObject id="vEm-Bm-BSF" customClass="LocalImageRootViewController"/>
@@ -101,6 +109,7 @@
                 <relationship kind="outlet" name="resultImageButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="switchCamButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="tapImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="tipLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>

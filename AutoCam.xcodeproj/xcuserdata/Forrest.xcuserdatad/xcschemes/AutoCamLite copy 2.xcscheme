@@ -13,9 +13,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1B867FD7139D4AD300AD6B47"
+               BlueprintIdentifier = "A834AD5A144A8F8300808A01"
                BuildableName = "Face Camera.app"
-               BlueprintName = "AutoCamLite"
+               BlueprintName = "JustCaptureUS"
                ReferencedContainer = "container:AutoCam.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -31,9 +31,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1B867FD7139D4AD300AD6B47"
+            BlueprintIdentifier = "A834AD5A144A8F8300808A01"
             BuildableName = "Face Camera.app"
-            BlueprintName = "AutoCamLite"
+            BlueprintName = "JustCaptureUS"
             ReferencedContainer = "container:AutoCam.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -49,9 +49,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1B867FD7139D4AD300AD6B47"
+            BlueprintIdentifier = "A834AD5A144A8F8300808A01"
             BuildableName = "Face Camera.app"
-            BlueprintName = "AutoCamLite"
+            BlueprintName = "JustCaptureUS"
             ReferencedContainer = "container:AutoCam.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -67,9 +67,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1B867FD7139D4AD300AD6B47"
+            BlueprintIdentifier = "A834AD5A144A8F8300808A01"
             BuildableName = "Face Camera.app"
-            BlueprintName = "AutoCamLite"
+            BlueprintName = "JustCaptureUS"
             ReferencedContainer = "container:AutoCam.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -78,8 +78,7 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Dist"
-      customArchiveName = "Face Camera"
+      buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

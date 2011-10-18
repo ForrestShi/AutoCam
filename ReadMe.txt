@@ -17,6 +17,8 @@ TODO:
 2. Switch front/back camera with transition animation
 3. Design how to show the capture process and result for users , how to review the capture results, and how to share results  
 
+4. Failed to use ShareKit ? 
+
 
 ===========================================================================
 DESCRIPTION:

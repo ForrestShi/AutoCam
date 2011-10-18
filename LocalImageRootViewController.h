@@ -15,12 +15,17 @@
 
 @class Photos;
 
-@interface LocalImageRootViewController : KTThumbsViewController <PhotoPickerControllerDelegate, PhotosDelegate, MFMailComposeViewControllerDelegate> 
+@interface LocalImageRootViewController : KTThumbsViewController <PhotoPickerControllerDelegate, PhotosDelegate,UIActionSheetDelegate , MFMailComposeViewControllerDelegate> 
 {
 @private
    PhotoPickerController *photoPicker_;
    Photos *myPhotos_;
    UIActivityIndicatorView *activityIndicatorView_;
+    
+    NSString *imagePath; 
 }
+
+@property (nonatomic,copy) NSString *imagePath;
+- (void) addObserver;
 
 @end

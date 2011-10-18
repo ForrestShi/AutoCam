@@ -13,6 +13,7 @@
 {
 	IBOutlet UIView *previewView;
     IBOutlet UIImageView *tapImageView;
+    IBOutlet UILabel  * tipLabel;
     IBOutlet UIButton *switchCamButton;
     IBOutlet UIButton *resultImageButton;
     UINavigationController *navController_;
@@ -31,7 +32,9 @@
 	CGFloat beginGestureScale;
 	CGFloat effectiveScale;
     
-    BOOL isLiteVersion;  
+    BOOL isLite;
+    NSString *appName;
+    NSNumber *faceCount;
 }
 
 @property (nonatomic, retain)  UINavigationController *navController;

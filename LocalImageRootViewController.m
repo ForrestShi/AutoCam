@@ -7,6 +7,8 @@
 //
 
 #import "LocalImageRootViewController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <CoreImage/CoreImage.h>
 
 
 @interface LocalImageRootViewController (Private)
@@ -16,36 +18,34 @@
 @end
 
 @implementation LocalImageRootViewController
+@synthesize imagePath;
 
 - (void)dealloc 
 {
    [activityIndicatorView_ release], activityIndicatorView_ = nil;
    [myPhotos_ release], myPhotos_ = nil;
    [activityIndicatorView_ release], activityIndicatorView_ = nil;
+    
+   [[NSNotificationCenter defaultCenter] removeObserver:self name:@"AddPhoto" object:nil];
    
    [super dealloc];
 }
 
-- (void)viewDidLoad 
-{
-   [super viewDidLoad];
-   
-   [self setTitle:NSLocalizedString(@"Photo Album", @"Photo Album screen title.")];
-   
-//   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
-//                                                                              target:self
-//                                                                              action:@selector(addPhoto)];
-//   [[self navigationItem] setRightBarButtonItem:addButton];
-//   [addButton release];
-   
-   if (myPhotos_ == nil) {
-      myPhotos_ = [[Photos alloc] init];
-      [myPhotos_ setDelegate:self];
-   }
-   [self setDataSource:myPhotos_];
+- (id) init{
+    if (self = [super init]) {
+       // NSLog(@"%s",__PRETTY_FUNCTION__);
+        [self addObserver];
+    }
+    return self;
+}
+- (void) addObserver {
     
-    /*
-     */
+    if (myPhotos_ == nil) {
+        myPhotos_ = [[Photos alloc] init];
+        [myPhotos_ setDelegate:self];
+    }
+    [self setDataSource:myPhotos_];
+    
     [[NSNotificationCenter defaultCenter] addObserverForName:@"AddPhoto" object:nil queue:[NSOperationQueue currentQueue] usingBlock:^(NSNotification *note) {
         NSLog(@"%s",__PRETTY_FUNCTION__);
         
@@ -62,10 +62,28 @@
         
         NSString *name = [NSString stringWithFormat:@"picture-%05i", [nextNumber intValue]];
         
-        // Save to the photo album if picture is from the camera.
-        [myPhotos_ savePhoto:image withName:name addToPhotoAlbum:YES];
+        [myPhotos_ savePhoto:image withName:name addToPhotoAlbum:NO];
         
     }];
+
+}
+
+- (void)viewDidLoad 
+{
+   [super viewDidLoad];
+   
+   [self setTitle:NSLocalizedString(@"Photo Album", @"Photo Album screen title.")];
+   
+//   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
+//                                                                              target:self
+//                                                                              action:@selector(addPhoto)];
+//   [[self navigationItem] setRightBarButtonItem:addButton];
+//   [addButton release];
+   
+
+    
+    /*
+     */
 }
 
 - (void)didReceiveMemoryWarning 
@@ -163,38 +181,81 @@
    [self reloadThumbs];
 }
 
+
+- (void) saveToAlbum:(NSData*)imageData{
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    [library writeImageDataToSavedPhotosAlbum:imageData metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {
+        if (error) {
+            //[self displayErrorOnMainQueue:error withMessage:@"Save to camera roll failed"];
+        }
+        
+    }];
+    [library release];
+    
+}
+
+- (void) sendAsEmail:(NSData*)imageData{
+
+    MFMailComposeViewController *controller = 
+    [[MFMailComposeViewController alloc] init];
+    
+    [controller setMailComposeDelegate:self];
+    [controller addAttachmentData:imageData 
+                         mimeType:@"image/jpeg" 
+                         fileName:@"Image.jpg"];
+    
+    [controller setMessageBody:@"Image attached" isHTML:NO];
+    
+    // Show the status bar because, otherwise, we will have some layout
+    // problems when the controller is dismissed.
+    if ([[UIApplication sharedApplication] respondsToSelector:
+         @selector(setStatusBarHidden:withAnimation:)]) 
+    {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO 
+                                                withAnimation:YES];
+    } 
+    else 
+    {
+        // get around deprecation warnings.
+        id sharedApp = [UIApplication sharedApplication];
+        [sharedApp setStatusBarHidden:NO animated:YES];
+    }
+    
+    [self.navigationController presentModalViewController:controller 
+                                                 animated:YES];
+    [controller release]; 
+    
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"%s %d", __PRETTY_FUNCTION__, buttonIndex);
+    NSData *imageData = [NSData dataWithContentsOfFile:self.imagePath];
+
+    switch (buttonIndex) {
+        case 0:
+            [self saveToAlbum:imageData];
+            break;
+          
+        case 1:
+            [self sendAsEmail:imageData];
+            break;
+        case 2:
+            
+            break;
+        default:
+            break;
+    }
+}
 - (void)exportImageAtPath:(NSString *)path
 {
-   NSData *imageData = [NSData dataWithContentsOfFile:path];
+    self.imagePath = path;
+    
    
-   MFMailComposeViewController *controller = 
-   [[MFMailComposeViewController alloc] init];
-   
-   [controller setMailComposeDelegate:self];
-   [controller addAttachmentData:imageData 
-                        mimeType:@"image/jpeg" 
-                        fileName:@"Image.jpg"];
-   
-   [controller setMessageBody:@"Image attached" isHTML:NO];
-   
-   // Show the status bar because, otherwise, we will have some layout
-   // problems when the controller is dismissed.
-   if ([[UIApplication sharedApplication] respondsToSelector:
-        @selector(setStatusBarHidden:withAnimation:)]) 
-   {
-      [[UIApplication sharedApplication] setStatusBarHidden:NO 
-                                              withAnimation:YES];
-   } 
-   else 
-   {
-      // get around deprecation warnings.
-      id sharedApp = [UIApplication sharedApplication];
-      [sharedApp setStatusBarHidden:NO animated:YES];
-   }
-   
-   [self.navigationController presentModalViewController:controller 
-                                                animated:YES];
-   [controller release];   
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Share" delegate:self cancelButtonTitle:@"Cancel" 
+                                               destructiveButtonTitle:nil otherButtonTitles:@"Album", @"Email",  nil];
+    //[actionSheet showInView:self.view];
+    [actionSheet showInView:[UIApplication sharedApplication].keyWindow];
+    
 }
 
 #pragma mark -
