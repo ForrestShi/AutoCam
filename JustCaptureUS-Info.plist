@@ -52,7 +52,10 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>isLiteVersion</key>
-	<string>YES</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>auto-focus-camera</string>
+		<string>front-facing-camera</string>
+	</array>
 </dict>
 </plist>

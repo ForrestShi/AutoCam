@@ -1,3 +1,11 @@
+
+Jan,9 2012
+
+Start new idea around this. Give up "auto face capture".
+
+
+
+
 ### SquareCam ###
 
 ### AutoCam for Friends ###

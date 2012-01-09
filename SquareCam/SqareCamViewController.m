@@ -25,6 +25,8 @@
 // used for KVO observation of the @"capturingStillImage" property to perform flash bulb animation
 static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCaptureStillImageIsCapturingStillImageContext";
 
+static const NSString *AVCaptureSetupContext = @"AVCaptureSetupContext";
+
 
 #pragma mark-
 
@@ -55,21 +57,10 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 	AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
 	require( error == nil, bail );
 	
-    isUsingFrontFacingCamera = YES;
+    isUsingFrontFacingCamera = NO;
+    
 	if ( [session canAddInput:deviceInput] )
 		[session addInput:deviceInput];
-	
-    
-    // add Torch button
-    // TODO 
-//    if ([device hasTorch]) {
-//        DDExpandableButton *torchModeButton = [self torchModeButton]; 
-//		[[self view] addSubview:torchModeButton];
-//	}
-    // add switch button for Front/Back camera
-    if (![self hasFrontCamera ]) {
-        switchCamButton.alpha = 0;
-	}
         
     // Make a still image output
 	stillImageOutput = [AVCaptureStillImageOutput new];
@@ -77,6 +68,9 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 	if ( [session canAddOutput:stillImageOutput] )
 		[session addOutput:stillImageOutput];
 	
+    //test on onTap
+    [self addObserver:self forKeyPath:@"capturingFace" options:NSKeyValueObservingOptionNew context:AVCaptureSetupContext];
+    
     // Make a video data output
 	videoDataOutput = [AVCaptureVideoDataOutput new];
 	
@@ -107,6 +101,20 @@ static const NSString *AVCaptureStillImageIsCapturingStillImageContext = @"AVCap
 	[previewLayer setFrame:[rootLayer bounds]];
 	[rootLayer addSublayer:previewLayer];
 	[session startRunning];
+    
+    // add Torch button
+    // TODO 
+    if ([device hasTorch]) {
+        DDExpandableButton *torchModeButton = [self torchModeButton]; 
+		[[self view] addSubview:torchModeButton];
+	} 
+    // add switch button for Front/Back camera
+    if (![self hasFrontCamera ]) {
+        switchCamButton.alpha = 0;
+	}else{
+        [self switchCameras:nil];
+    }
+    
 
 bail:
 	[session release];
@@ -169,7 +177,37 @@ bail:
 							 }
 			 ];
 		}
-	}
+	}else if ( context == AVCaptureSetupContext ){
+    
+        BOOL isCapturingFace = [[change objectForKey:NSKeyValueChangeNewKey] boolValue];
+                
+        if ([[[AppConfigure sharedInstance] faceCount] intValue] > 1 ) {
+            isCapturingFace = YES;
+            //Always DETECTING FACES
+            return;
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (isCapturingFace) {
+                tapImageView.alpha = 1.0;
+                tapImageView.image = [UIImage imageNamed:@"pause.png"];
+                tipLabel.text = @"Tap to Stop ";
+                [UIView animateWithDuration:1 animations:^{
+                    tapImageView.alpha = 0.7;
+                }];
+            }else{
+                tapImageView.alpha = 1.0;
+                tapImageView.image = [UIImage imageNamed:@"start.png"];
+                tipLabel.text = @"Tap to Start";
+                
+                [UIView animateWithDuration:1 animations:^{
+                    tapImageView.alpha = 0.7;
+                }];
+            }
+        });
+
+        
+    }
 }
 
 // utility routing used during image capture to set up capture orientation
@@ -554,7 +592,7 @@ static int noFaceCounts = 0;
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 {	
-    NSLog(@"%s",__PRETTY_FUNCTION__);
+  //  NSLog(@"%s",__PRETTY_FUNCTION__);
     
 	// got an image
 	CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
@@ -618,7 +656,7 @@ static int noFaceCounts = 0;
 //    
     int curFaceCount = [features count];
     if (curFaceCount >= [[[AppConfigure sharedInstance] faceCount] intValue]) {
-        NSLog(@"Get faces %d", curFaceCount);
+     //   NSLog(@"Get faces %d", curFaceCount);
         //reset 
         noFaceCounts = 0; 
         
@@ -633,24 +671,23 @@ static int noFaceCounts = 0;
         
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             tapImageView.image = [UIImage imageNamed:@"great"];
-            tipLabel.text = @"Wow, nice face !";
+            tipLabel.text = @"Wow, Nice Face !";
             [self takePicture:nil];
         });
     }else{
         noFaceCounts ++;
-        NSLog(@"No faces %d", noFaceCounts);
         
-        if (noFaceCounts <= 10 ) {
+        if (noFaceCounts <= 20 ) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 tapImageView.image = [UIImage imageNamed:@"want.png"];
-                tipLabel.text = @"wanna human face ...";
+                tipLabel.text = [NSString stringWithFormat:@"Wanna %d face" , [[AppConfigure sharedInstance] faceCount].intValue];
             });
-        }else if (noFaceCounts > 10 && noFaceCounts < 20 ) {
+        }else if (noFaceCounts > 20 && noFaceCounts < 50 ) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 tapImageView.image = [UIImage imageNamed:@"noface.png"];
                 tipLabel.text = @"No faces, WHY ?!";
             });
-        }else if (noFaceCounts >= 20 ) {
+        }else if (noFaceCounts >= 50 ) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 tapImageView.image = [UIImage imageNamed:@"angryface.png"];
                 tipLabel.text = @"Where are f**k faces ?";
@@ -709,11 +746,6 @@ static int noFaceCounts = 0;
 			}            
             [[previewLayer session] addInput:input];
             [[previewLayer session] commitConfiguration];
-            
-            CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
-            rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI];
-            rotationAnimation.duration = .2;
-            [previewView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation1"];
 			break;
 		}
 	}
@@ -724,7 +756,7 @@ static int noFaceCounts = 0;
 - (void) backToCamera{
     [self.navController.view removeFromSuperview];
     self.navController = nil;
-    self.capturingFace = NO;
+    self.capturingFace = YES;
     
 }
 - (IBAction) enterLocalThumbs:(id) sender{
@@ -747,41 +779,6 @@ static int noFaceCounts = 0;
         }];
     }
 }
-- (void) setCapturingFace:(BOOL)aCapturingFace{
-    
-    capturingFace = aCapturingFace;
-    
-    if ([[[AppConfigure sharedInstance] faceCount] intValue] > 1 ) {
-        // Just Capture US
-        // Do not display the "start/pause" , always in the status of "running"
-        dispatch_async(dispatch_get_main_queue(), ^{
-            capturingFace = YES;
-            tapImageView.alpha = 0;
-        });
-        return;
-    }
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (capturingFace) {
-            tapImageView.alpha = 1.0;
-            tapImageView.image = [UIImage imageNamed:@"pause.png"];
-            tipLabel.text = @"Tap to Stop ";
-            [UIView animateWithDuration:1 animations:^{
-                tapImageView.alpha = 0.7;
-            }];
-        }else{
-            tapImageView.alpha = 1.0;
-            tapImageView.image = [UIImage imageNamed:@"start.png"];
-            tipLabel.text = @"Tap to Start";
-            
-            [UIView animateWithDuration:1 animations:^{
-                tapImageView.alpha = 0.7;
-            }];
-        }
-    });
-
-    
-}
 
 - (void) onTap:(UIGestureRecognizer*)recognizer{
     self.capturingFace = !(self.capturingFace);
@@ -799,7 +796,7 @@ static int noFaceCounts = 0;
 {
     [super viewDidLoad];
     
-    self.capturingFace = NO;
+    self.capturingFace = YES;
     
     if (!thumbsViewController) {
         thumbsViewController = [[LocalImageRootViewController alloc] init];
@@ -807,6 +804,7 @@ static int noFaceCounts = 0;
         
 	// Do any additional setup after loading the view, typically from a nib.
 	[self setupAVCapture];
+    
 	square = [[UIImage imageNamed:@"squarePNG"] retain];
 	NSDictionary *detectorOptions = [[NSDictionary alloc] initWithObjectsAndKeys:CIDetectorAccuracyLow, CIDetectorAccuracy, nil];
 	faceDetector = [[CIDetector detectorOfType:CIDetectorTypeFace context:nil options:detectorOptions] retain];
