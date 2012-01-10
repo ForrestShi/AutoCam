@@ -947,8 +947,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Shi Lin (NER6K732V4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shi Lin (NER6K732V4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Forrest  Shi (LKXG6NX239)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Forrest  Shi (LKXG6NX239)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SquareCam/Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -961,8 +961,8 @@
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/MyApps-aupqjfejjlmkhccituhlsrlchdlg/Build/Products/Debug-iphoneos\"",
 				);
 				PRODUCT_NAME = "Face Camera";
-				PROVISIONING_PROFILE = "5A4FE4C1-F370-4119-BA2A-7BB3321CED93";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5A4FE4C1-F370-4119-BA2A-7BB3321CED93";
+				PROVISIONING_PROFILE = "E8C8E31A-BDE1-4573-A17A-5C58DCAC3EF7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E8C8E31A-BDE1-4573-A17A-5C58DCAC3EF7";
 				SDKROOT = iphoneos5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -1123,8 +1123,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Shi Lin (NER6K732V4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shi Lin (NER6K732V4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SquareCam/Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1137,8 +1137,8 @@
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/MyApps-aupqjfejjlmkhccituhlsrlchdlg/Build/Products/Debug-iphoneos\"",
 				);
 				PRODUCT_NAME = AutoCamera;
-				PROVISIONING_PROFILE = "5A4FE4C1-F370-4119-BA2A-7BB3321CED93";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5A4FE4C1-F370-4119-BA2A-7BB3321CED93";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
