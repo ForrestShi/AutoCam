@@ -442,10 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				2BA4851913F1EC39000BABB3 /* ReadMe.txt */,
-				A86A6067144337E00014AF30 /* LARSAdController */,
-				189A10D7143F03960076115C /* Utility Classes */,
-				189A10BC143EF17A0076115C /* KTPhoto */,
-				189A10CE143EF6C80076115C /* LocalKTPhoto */,
+				A8B3768D14BC1BA700AC60B3 /* 3rdParty */,
 				1B867FE2139D4AD300AD6B47 /* App */,
 				1B867FDB139D4AD300AD6B47 /* Frameworks */,
 				1B867FD9139D4AD300AD6B47 /* Products */,
@@ -567,6 +564,17 @@
 			);
 			name = GoogleAdMobAdsSDK;
 			path = ../GoogleAdMobAdsSDK;
+			sourceTree = "<group>";
+		};
+		A8B3768D14BC1BA700AC60B3 /* 3rdParty */ = {
+			isa = PBXGroup;
+			children = (
+				189A10CE143EF6C80076115C /* LocalKTPhoto */,
+				A86A6067144337E00014AF30 /* LARSAdController */,
+				189A10D7143F03960076115C /* Utility Classes */,
+				189A10BC143EF17A0076115C /* KTPhoto */,
+			);
+			name = 3rdParty;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
